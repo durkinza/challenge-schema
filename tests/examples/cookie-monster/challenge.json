@@ -1,0 +1,48 @@
+{
+    "$schema": "../../../schema.json",
+    "name": "Cookie-Monster",
+    "description": "There's trouble on Seasame Street! The Cookie Monster needs your help to find his cookies!",
+    "defaultFlag": {
+        "value": "flag{C00kies_4r3_the_b3st}",
+        "regex": "/(flag)?{?C00kies_4r3_the_b3st}?/i"
+    },
+    "customFlag": {
+        "allowedCharacters": {
+            "lowercase": true,
+            "uppercase": true,
+            "numbers": true,
+            "specialCharacters": true
+        }
+    },
+    "deployment": {
+        "type": "hosted",
+        "hosted": {
+            "container": {
+                "image": "neverlanctf/cookie-monster:lastest",
+                "driver": "docker",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "http"
+                    }
+                ],
+                "resourceRequirements": {
+                    "cpu": 1024,
+                    "memory": "256Mi"
+                },
+                "flagArg": "flag"
+            }
+        }
+    },
+    "author": {
+        "name": "NeverLANCTF",
+        "email": "info@neverlanctf.org",
+        "website": "https://neverlanctf.org"
+    },
+    "language": "english",
+    "solutions": [
+        "Load the page the first time",
+        "Look for a cookie in your browser that is called `Red_Guy's_name` and change the value to 'Elmo'",
+        "Reload the page to submit the new cookie and obtain the flag"
+    ]
+}

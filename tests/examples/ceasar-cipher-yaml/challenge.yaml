@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../schema.json
+name: Ceasar Cipher
+description: A simple ceasar cipher challenge. The flag is hidden in the text.
+default_flag:
+  value: flag{ceasar_salad}
+  regex: /(flag)?{?ceasar_salad}?/i
+custom_flag:
+  allowed_characters:
+    lowercase: true
+    uppercase: true
+    numbers: true
+    special_characters: true
+deployment:
+  type: standard
+  standard:
+    build:
+      buildType: script
+      script:
+        path: build.sh
+        flagArg: flag
+        outputs:
+          - key: cipher.txt
+            path: cipher.txt
+    attachments:
+      - name: Cipher.txt
+        type: text/plain
+        key: cipher.txt
+        path: cipher.txt
+author:
+  name: NeverLANCTF
+  email: info@neverlanctf.org
+  website: https://neverlanctf.org
+language: english
+solutions:
+  - Open the cipher.txt file
+  - Decrypt the text using a ceasar cipher with a shift of 13

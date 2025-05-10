@@ -1,0 +1,23 @@
+{
+  "name": "challenge-bundle-schema",
+  "containerEnv": {
+    	"SHELL": "/bin/zsh",
+		  "AWS_DEFAULT_REGION": "${localEnv:AWS_DEFAULT_REGION:us-west-2}",
+      "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
+      "GITHUB_USER": "${localEnv:GITHUB_USER}"
+	},
+
+	"postCreateCommand": "just setup",
+
+	// Configure tool-specific properties.
+	"customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "ms-vscode-remote.vscode-remote-extensionpack",
+                "skellock.just"
+            ]
+        }
+    },
+}

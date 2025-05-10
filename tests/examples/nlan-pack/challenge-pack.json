@@ -1,0 +1,19 @@
+{
+    "challenges": [
+        {
+            "id": "c66434c0-4943-41fa-9510-a8cb4fb8fc13",
+            "slug": "cookie-monster",
+            "category": "web",
+            "value": 2,
+            "prerequisites": [
+                "7b13c4a8-cc38-4b25-b88f-4060b0b938b8"
+            ]
+        },
+        {
+            "id": "7b13c4a8-cc38-4b25-b88f-4060b0b938b8",
+            "slug": "ceasar-cipher",
+            "category": "crypto",
+            "value": 1
+        }
+    ]
+}
