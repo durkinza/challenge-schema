@@ -1,5 +1,5 @@
 {
-    "$schema": "../../../schema.json",
+    "$schema": "../../../challenge-bundle.schema.json",
     "name": "Cookie-Monster",
     "description": "There's trouble on Seasame Street! The Cookie Monster needs your help to find his cookies!",
     "defaultFlag": {

@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=../../schema.json
+# yaml-language-server: $schema=../../../challenge-bundle.schema.json
 name: Ceasar Cipher
 description: A simple ceasar cipher challenge. The flag is hidden in the text.
 default_flag:

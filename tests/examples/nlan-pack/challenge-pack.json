@@ -1,4 +1,5 @@
 {
+    "$schema": "../../../challenge-pack.schema.json",
     "challenges": [
         {
             "id": "c66434c0-4943-41fa-9510-a8cb4fb8fc13",
