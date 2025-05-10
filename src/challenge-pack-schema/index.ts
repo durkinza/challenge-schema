@@ -33,6 +33,14 @@ export const ChallengePack = z.object({
         }),
     }),
   ),
-});
+})
+  .meta({
+    $schema: "https://json-schema.org/draft-07/schema",
+    $id: "https://json.schemastore.org/ctf-challenge-pack",
+    title: "CTF Challenge Pack",
+    version: process.env.npm_package_version,
+    description:
+      "A pack of challenges, including their categories, values, and prerequisites.",
+  });;
 
 export default ChallengePack;

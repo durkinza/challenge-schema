@@ -1,5 +1,6 @@
 {
-  "id": "ctf-challenge-bundle",
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "$id": "https://json.schemastore.org/ctf-challenge-bundle",
   "title": "CTF Challenge Bundle",
   "version": "0.0.0",
   "description": "A bundle of information about a challenge, including its name, description, default flag, custom flag, deployment, author, language, and solutions.",

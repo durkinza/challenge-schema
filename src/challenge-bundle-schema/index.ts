@@ -22,7 +22,8 @@ export const ChallengeBundle = z
     solutions: challengeSolutions,
   })
   .meta({
-    id: "ctf-challenge-bundle",
+    $schema: "https://json-schema.org/draft-07/schema",
+    $id: "https://json.schemastore.org/ctf-challenge-bundle",
     title: "CTF Challenge Bundle",
     version: process.env.npm_package_version,
     description:
