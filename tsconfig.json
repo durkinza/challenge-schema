@@ -13,8 +13,8 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@challenge-bundle": ["./src/challenge-bundle-schema"],
-      "@challenge-bundle/*": ["./src/challenge-bundle-schema/*"],
+      "@challenge-bundle": ["src/challenge-schema"],
+      "@challenge-bundle/*": ["src/challenge-schema/*"],
       "@challenge-pack": ["./src/challenge-pack-schema"],
       "@challenge-pack/*": ["./src/challenge-pack-schema/*"]
     },

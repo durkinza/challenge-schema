@@ -1,0 +1,81 @@
+name: Release
+
+# This workflow runs when a new GitHub release is published
+# It builds the project, attaches schema files to the release,
+# and publishes the package to both npm and GitHub Packages
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to upload assets to the release
+      packages: write # Needed to publish to GitHub Packages
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Set version from release tag
+        run: |
+          VERSION=$(echo ${{ github.ref }} | sed -e 's/refs\/tags\/v//')
+          echo "Setting package version to $VERSION"
+          jq ".version = \"$VERSION\"" package.json > package.json.tmp
+          mv package.json.tmp package.json
+
+      - name: Build
+        run: bun run build
+
+      - name: Upload schema files to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            challenge-bundle.schema.json
+            challenge-pack.schema.json
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js for publishing
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@${{ github.repository_owner }}'
+
+      - name: Prepare package for publishing
+        run: |
+          # Ensure we have a files field to control what gets published
+          jq '.files = ["dist", "*.schema.json", "LICENSE", "README.md"]' package.json > package.json.tmp
+          mv package.json.tmp package.json
+
+      - name: Publish to NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Setup Node.js for GitHub Packages
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@${{ github.repository_owner }}'
+
+      - name: Configure package.json for GitHub Packages
+        run: |
+          REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
+          jq ".name = \"@$REPO_NAME\"" package.json > package.json.tmp
+          mv package.json.tmp package.json
+
+      - name: Publish to GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

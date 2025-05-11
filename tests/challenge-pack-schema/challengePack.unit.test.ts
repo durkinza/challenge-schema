@@ -9,7 +9,7 @@ describe('Challenge Author Schema Validation', () => {
           id: "c66434c0-4943-41fa-9510-a8cb4fb8fc13",
           value: 100,
           category: "web",
-          slug: "cookie-monster",
+          path: "./cookie-monster",
           prerequisites: ["challenge-1", "challenge-2"],
         }
       ]

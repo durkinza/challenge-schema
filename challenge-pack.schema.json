@@ -1,9 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema",
-  "$id": "https://json.schemastore.org/ctf-challenge-pack",
+  "$id": "https://json.schemastore.org/ctf-challenge-pack.schema.json",
   "title": "CTF Challenge Pack",
   "version": "0.0.0",
-  "description": "A pack of challenges, including their categories, values, and prerequisites.",
+  "description": "A pack of challenges, including overriding value, categories, and prerequisites.",
   "type": "object",
   "properties": {
     "challenges": {
@@ -11,6 +11,14 @@
       "items": {
         "type": "object",
         "properties": {
+          "path": {
+            "description": "The location of the challenge bundle",
+            "examples": [
+              "./challenge-1",
+              "/home/bob/challenges/challenge-1"
+            ],
+            "type": "string"
+          },
           "id": {
             "description": "The unique identifier for the challenge bundle",
             "examples": [
@@ -19,16 +27,8 @@
             ],
             "type": "string"
           },
-          "slug": {
-            "description": "The short name for the challenge. Useful when the ID is a UUID.",
-            "examples": [
-              "challenge-1",
-              "challenge-2"
-            ],
-            "type": "string"
-          },
           "category": {
-            "description": "The category of the challenge",
+            "description": "The category of the challenge. If not provided, it will default to the category in the challenge.",
             "examples": [
               "web",
               "crypto",
@@ -36,8 +36,8 @@
             ],
             "type": "string"
           },
-          "value": {
-            "description": "The score/value of the challenge",
+          "points": {
+            "description": "The score/value/points of the challenge. If not provided, it will default to the points value from the challenge.",
             "examples": [
               1,
               20,
@@ -60,9 +60,8 @@
           }
         },
         "required": [
-          "id",
-          "category",
-          "value"
+          "path",
+          "id"
         ]
       }
     }

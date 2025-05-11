@@ -1,13 +1,13 @@
 {
-    "$schema": "../../../challenge-bundle.schema.json",
+    "$schema": "../../../challenge.schema.json",
     "name": "Cookie-Monster",
     "description": "There's trouble on Seasame Street! The Cookie Monster needs your help to find his cookies!",
-    "default_flag": {
+    "defaultFlag": {
         "value": "flag{C00kies_4r3_the_b3st}",
         "regex": "/(flag)?{?C00kies_4r3_the_b3st}?/i"
     },
-    "custom_flag": {
-        "allowed_characters": {
+    "customFlag": {
+        "allowedCharacters": {
         }
     },
     "deployment": {

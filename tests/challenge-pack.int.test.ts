@@ -34,7 +34,8 @@ describe('Challenge Pack Schema Validation', () => {
       // This should not throw an error
       const result = validateChallengePack(challenge);
       expect(result).toBeDefined();
-      expect(result.challenges[0].id).toBe('c66434c0-4943-41fa-9510-a8cb4fb8fc13');
+      expect(result.challenges[0].id).toBe('cookie-monster');
+      expect(result.challenges[0].path).toBe('./c66434c0-4943-41fa-9510-a8cb4fb8fc13');
     });
   });
   describe('Bad Challenge Bundles', () => {

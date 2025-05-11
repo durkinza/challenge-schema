@@ -39,7 +39,7 @@ describe('Challenge Bundle Schema Validation', () => {
       const result = validateChallengeBundle(challenge);
       expect(result).toBeDefined();
       expect(result.name).toBe('Cookie-Monster');
-      expect(result.defaultFlag?.value).toBe('flag{C00kies_4r3_the_b3st}');
+      expect(result.flag.validation.static[0]).toBe('flag{C00kies_4r3_the_b3st}');
     });
   });
   describe('Bad Challenge Bundles', () => {

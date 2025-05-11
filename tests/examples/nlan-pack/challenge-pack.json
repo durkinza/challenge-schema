@@ -2,17 +2,17 @@
     "$schema": "../../../challenge-pack.schema.json",
     "challenges": [
         {
-            "id": "c66434c0-4943-41fa-9510-a8cb4fb8fc13",
-            "slug": "cookie-monster",
+            "id": "cookie-monster",
+            "path": "./c66434c0-4943-41fa-9510-a8cb4fb8fc13",
             "category": "web",
             "value": 2,
             "prerequisites": [
-                "7b13c4a8-cc38-4b25-b88f-4060b0b938b8"
+                "ceasar-cipher"
             ]
         },
         {
-            "id": "7b13c4a8-cc38-4b25-b88f-4060b0b938b8",
-            "slug": "ceasar-cipher",
+            "id": "ceasar-cipher",
+            "path": "./ceasar-salad",
             "category": "crypto",
             "value": 1
         }

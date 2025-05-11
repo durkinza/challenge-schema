@@ -11,6 +11,10 @@ export const containerOptions = z.object({
     .any()
     .optional()
     .meta({ description: "The tar file containing the challenge image" }),
+  imageDigest: z.string().optional().meta({
+    description:
+      "The digest of the image to use for the challenge, e.g. sha256:1234567890abcdef",
+  }),
   driver: z.string().meta({
     description:
       "The hosting driver to use for the challenge, e.g. 'docker', 'podman', 'containerd', 'vmware', 'kvm', 'lxc', 'kubernetes'",

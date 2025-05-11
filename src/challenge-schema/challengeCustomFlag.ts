@@ -36,14 +36,11 @@ export const challengeCustomFlag = z
       .meta({
         description:
           "An object of allowed characters or a regex string that it must match",
-      })
-      .or(
-        z.string().meta({
-          description: "A Regex string that the flag must match to work.",
-        }),
-      ),
+      }),
+    regex: z.string().optional().meta({
+      description: "A Regex string that the flag must match to work.",
+    }),
   })
-  .optional()
   .meta({
     description:
       "How to provide a custom flag for the challenge when producing a dynamic flag, or undefined if dynamic flags are not supported.",

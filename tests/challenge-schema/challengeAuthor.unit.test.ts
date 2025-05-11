@@ -1,5 +1,5 @@
-import { challengeAuthor } from '@challenge-bundle/challengeAuthor';
 import { describe, expect, it } from '@jest/globals';
+import { challengeAuthor } from 'src/challenge-schema/challengeAuthor';
 
 describe('Challenge Author Schema Validation', () => {
   it('should validate the full challenge author schema', () => {

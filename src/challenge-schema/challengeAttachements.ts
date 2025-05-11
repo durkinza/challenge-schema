@@ -2,12 +2,13 @@ import { z } from "zod";
 
 const challengeAttachmentBase = z
   .object({
-    name: z
-      .string()
-      .meta({ description: "The name of the file, e.g. 'artifact.zip'" }),
+    name: z.string().meta({
+      description: "The name of the file.",
+      examples: ["artifact.zip"],
+    }),
     type: z.string().meta({
-      description:
-        "The type of the file, e.g. 'application/zip', 'image/png', 'text/plain'",
+      description: "The type of the file.",
+      examples: ["application/zip", "image/png", "text/plain"],
     }),
     key: z.string().meta({
       description: "The key/name of the file to be used in the attachment step",
@@ -15,14 +16,24 @@ const challengeAttachmentBase = z
     path: z
       .string()
       .optional()
-      .meta({ description: "The path to the file, e.g. '/tmp/artifact.zip'" }),
-    url: z.string().optional().meta({
-      description:
-        "The URL of the file, e.g. 'https://example.com/artifact.zip'",
-    }),
-    content: z.string().optional().meta({
-      description: "The raw content of the attachment, e.g. 'Hello World'",
-    }),
+      .meta({
+        description: "The path to the file.",
+        examples: ["/tmp/artifact.zip"],
+      }),
+    url: z
+      .string()
+      .optional()
+      .meta({
+        description: "The URL of the file.",
+        examples: ["https://example.com/artifact.zip"],
+      }),
+    content: z
+      .string()
+      .optional()
+      .meta({
+        description: "The raw content of the attachment",
+        examples: ["Hello World", "### HELLO WORLD\n\nThis is markdown text."],
+      }),
   })
   .meta({
     description: "The attachment provided to the player of the challenge",

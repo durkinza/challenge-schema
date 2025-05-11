@@ -1,17 +1,22 @@
 {
-    "$schema": "../../../challenge-bundle.schema.json",
+    "$schema": "../../../challenge.schema.json",
     "name": "Ceasar Cipher",
     "description": "A simple ceasar cipher challenge. The flag is hidden in the text.",
-    "default_flag": {
-        "value": "flag{ceasar_salad}",
-        "regex": "/(flag)?{?ceasar_salad}?/i"
-    },
-    "custom_flag": {
-        "allowed_characters": {
-            "lowercase": true,
-            "uppercase": true,
-            "numbers": true,
-            "special_characters": true
+    "points": 0,
+    "category": "web",
+    "flag": {
+        "generation": {
+            "allowedCharacters": {
+                "lowercase": true,
+                "uppercase": false,
+                "numbers": false,
+                "specialCharacters": false
+            },
+            "regex": "/(\\w)/i"
+        },
+        "validation":{
+            "regex": ["/flag{ceasar_salad}/i"],
+            "static": ["flag{ceasar_salad}"]
         }
     },
     "deployment": {

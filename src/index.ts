@@ -1,13 +1,13 @@
-export * from "./challenge-bundle-schema";
 export * from "./challenge-pack-schema";
-import { ChallengeBundle } from "./challenge-bundle-schema";
+export * from "./challenge-schema";
 import { ChallengePack } from "./challenge-pack-schema";
+import { Challenge } from "./challenge-schema";
 
 export const validateChallengeBundle = (data: unknown) => {
-  const result = ChallengeBundle.safeParse(data);
+  const result = Challenge.safeParse(data);
   if (!result.success) {
     throw new Error(
-      `Challenge bundle validation failed: ${JSON.stringify(result.error)}`,
+      `Challenge.json validation failed: ${JSON.stringify(result.error)}`,
     );
   }
   return result.data;
