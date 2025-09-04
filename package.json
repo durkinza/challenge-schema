@@ -23,10 +23,9 @@
     "test:int": "bun test int.test",
     "test:watch": "bun test --watch",
     "test:coverage": "bun test --coverage",
-    "build": "bun run build:dist && bun run build:json-schema && bun run build:yaml-schema",
+    "build": "bun run build:dist && bun run build:json-schema",
     "build:dist": "bun --compile src/index.ts --out-dir dist",
     "build:json-schema": "bun ./scripts/build-json-schema.ts",
-    "build:yaml-schema": "bun ./scripts/build-python-validator.ts",
     "prepare": "husky"
   },
   "dependencies": {

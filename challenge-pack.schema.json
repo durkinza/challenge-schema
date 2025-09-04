@@ -3,7 +3,7 @@
   "$id": "https://json.schemastore.org/ctf-challenge-pack.schema.json",
   "title": "CTF Challenge Pack",
   "version": "0.0.0",
-  "description": "A pack of challenges, including overriding value, categories, and prerequisites.",
+  "description": "A pack of Cyber Security Capture the Flag (CTF) challenges.",
   "type": "object",
   "properties": {
     "challenges": {

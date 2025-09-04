@@ -2,15 +2,15 @@
   "json.schemas": [
     {
       "fileMatch": [
-          "/challenge.json",
+          "challenge.json",
       ],
-      "url": "https://raw.githubusercontent.com/durkinza/challenge-bundle-schema/refs/heads/main/challenge-bundle.schema.json"
+      "url": "./challenge.schema.json"
     },
     {
       "fileMatch": [
-            "/challenge-pack.json",
+            "challenge-pack.json",
       ],
-      "url": "https://raw.githubusercontent.com/durkinza/challenge-bundle-schema/refs/heads/main/challenge-pack.schema.json"
+      "url": "./challenge-pack.schema.json"
     }
   ]
 }

@@ -47,8 +47,7 @@ export const ChallengePack = z
     $id: `https://json.schemastore.org/ctf-challenge-pack.schema.json`,
     title: "CTF Challenge Pack",
     version: `${version}`,
-    description:
-      "A pack of challenges, including overriding value, categories, and prerequisites.",
+    description: "A pack of Cyber Security Capture the Flag (CTF) challenges.",
   });
 
 export default ChallengePack;

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { challengeAttachments } from "../challengeAttachements";
+import { challengeAttachments } from "../challengeAttachments";
 import { containerOptions } from "./containerOptions";
 import { scriptOptions } from "./scriptOptions";
 import { stackOptions } from "./stackOptions";
