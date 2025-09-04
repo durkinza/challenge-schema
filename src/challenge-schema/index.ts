@@ -40,90 +40,17 @@ export const Challenge = z
   })
   .meta({
     $schema: "https://json-schema.org/draft-07/schema",
-    $id: `https://json.schemastore.org/ctf-challenge-bundle.schema.json`,
-    title: "CTF Challenge Bundle",
+    $id: `https://json.schemastore.org/ctf-challenge.schema.json`,
+    title: "CTF Challenge",
     version: `${version}`,
     description:
-      "A bundle of information about a challenge, including its name, description, default flag, custom flag, deployment, author, language, and solutions.",
+      "A bundle of information about a cybersecurity Capture the Flag (CTF) challenge, covering the deployment instructions, flag options, and other challenge metadata.",
   });
 
-export * from "./challengeAttachements";
+export * from "./challengeAttachments";
 export * from "./challengeAuthor";
 export * from "./challengeCustomFlag";
 export * from "./challengeDefaultFlag";
 export * from "./challengeDeployment";
 export * from "./challengeSolutions";
 export default Challenge;
-
-/**
-{
-...
-flag: {
-  customFlag: {
-    allowedCharacters: {
-      lowercase: true,  
-      uppercase: true,
-      numbers: true,
-      specialCharacters: true,
-      length: {
-        min: 10,
-        max: 20,
-      },
-    },
-    validationRegex: "/[\w\W]+/i",
-  },
-  defaultFlags: [
-      {
-        type: "string",
-        value: "flag{this_is_a_flag}",
-      },
-      {
-        type: "regex",
-        value: "/(flag)?{?this_is_a_flag}?/i",
-      },
-      {
-        type: "code",
-        stdin: "",
-        stdout: "asdf",
-      },
-      {
-        type: "custom",
-      },
-    ]
-  }
-}
-
-
-flag: {
-    generation: {
-        allowedChars: {
-            lowercase: boolean,
-            uppercase: boolean,
-            numbers: boolean,
-            specialCharacters: boolean,
-            length: {
-                min: number,
-                max: number
-            }
-        },
-        regex: string
-    } | undefined,
-    validation: {
-      regex: string[] | undefined,
-      static: string[],
-      code: [
-          {
-              stdin: string,
-              stdout: string
-          }
-          // ...
-      ],
-      programmable: string[],
-      custom: [{
-        myweirdflag: string,
-      }]
-    }
-}
-...
-}
-//  */

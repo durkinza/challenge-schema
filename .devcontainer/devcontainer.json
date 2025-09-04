@@ -1,5 +1,8 @@
 {
   "name": "challenge-bundle-schema",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
   "containerEnv": {
     	"SHELL": "/bin/zsh",
 		  "AWS_DEFAULT_REGION": "${localEnv:AWS_DEFAULT_REGION:us-west-2}",
