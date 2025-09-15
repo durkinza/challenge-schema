@@ -30,9 +30,14 @@ jobs:
         run: bun install
 
       - name: Set version from release tag
+        id: set_version
         run: |
           VERSION=$(echo ${{ github.ref }} | sed -e 's/refs\/tags\/v//')
+          if [[ "${{ github.event.release.prerelease }}" == "true" ]]; then
+            VERSION="$VERSION-beta"
+          fi
           echo "Setting package version to $VERSION"
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
           jq ".version = \"$VERSION\"" package.json > package.json.tmp
           mv package.json.tmp package.json
 
@@ -46,6 +51,7 @@ jobs:
             challenge.schema.json
             challenge-pack.schema.json
           token: ${{ secrets.GITHUB_TOKEN }}
+    
 
       # - name: Configure npm registry
       #   run: |
@@ -54,11 +60,11 @@ jobs:
       #     echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
 
       # - name: Publish to NPM with standard tag
-      #   run: bun publish --tag ${{ github.event.release.prerelease && echo "next" || echo "latest" }}
+      #   run: bun publish --tag ${{ steps.set_version.outputs.VERSION }}
       #   env:
       #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to GitHub Packages
-        run: bun publish --tag ${{ github.event.release.prerelease && echo "next" || echo "latest" }}
+        run: bun publish --access restricted --tag ${{ steps.set_version.outputs.VERSION }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
