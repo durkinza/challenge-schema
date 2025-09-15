@@ -22,13 +22,16 @@ jobs:
         uses: oven-sh/setup-bun@v2
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           bun-version: latest
           registries: |
-            @durkinza/challenge-schema:https://npm.pkg.github.com/|$GITHUB_TOKEN
-
+            @durkinza:https://npm.pkg.github.com/|$GITHUB_TOKEN
+      
       - name: Install dependencies
-        run: bun install
+        env:
+          BUN_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bun ci
 
       - name: Set version from release tag
         id: set_version
@@ -54,12 +57,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
     
 
-      # - name: Configure npm registry
-      #   run: |
-      #     echo "@$(echo $GITHUB_REPOSITORY | cut -d/ -f1):registry=https://npm.pkg.github.com" > .npmrc
-      #     echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
-      #     echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
-
       # - name: Publish to NPM with standard tag
       #   run: bun publish --tag ${{ steps.set_version.outputs.VERSION }}
       #   env:
@@ -68,5 +65,6 @@ jobs:
       - name: Publish to GitHub Packages
         run: bun publish --access restricted --ignore-scripts --tag ${{ steps.set_version.outputs.VERSION }}
         env:
+          BUN_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
