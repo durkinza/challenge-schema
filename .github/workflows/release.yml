@@ -65,6 +65,6 @@ jobs:
       #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to GitHub Packages
-        run: bun publish --access restricted --tag ${{ steps.set_version.outputs.VERSION }}
+        run: bun publish --access restricted --ignore-scripts --tag ${{ steps.set_version.outputs.VERSION }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
