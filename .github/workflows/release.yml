@@ -19,9 +19,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+          registries: |
+            @durkinza/challenge-schema:https://registry.npmjs.org/|$NPM_TOKEN
+            @durkinza/challenge-schema:https://npm.pkg.github.com/|$GITHUB_TOKEN
 
       - name: Install dependencies
         run: bun install
@@ -40,42 +43,22 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            challenge-bundle.schema.json
+            challenge.schema.json
             challenge-pack.schema.json
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Node.js for publishing
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          registry-url: 'https://registry.npmjs.org'
-          scope: '@${{ github.repository_owner }}'
+      # - name: Configure npm registry
+      #   run: |
+      #     echo "@$(echo $GITHUB_REPOSITORY | cut -d/ -f1):registry=https://npm.pkg.github.com" > .npmrc
+      #     echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+      #     echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
 
-      - name: Prepare package for publishing
-        run: |
-          # Ensure we have a files field to control what gets published
-          jq '.files = ["dist", "*.schema.json", "LICENSE", "README.md"]' package.json > package.json.tmp
-          mv package.json.tmp package.json
-
-      - name: Publish to NPM
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Setup Node.js for GitHub Packages
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@${{ github.repository_owner }}'
-
-      - name: Configure package.json for GitHub Packages
-        run: |
-          REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
-          jq ".name = \"@$REPO_NAME\"" package.json > package.json.tmp
-          mv package.json.tmp package.json
+      # - name: Publish to NPM with standard tag
+      #   run: bun publish --tag ${{ github.event.release.prerelease && echo "next" || echo "latest" }}
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to GitHub Packages
-        run: npm publish
+        run: bun publish --tag ${{ github.event.release.prerelease && echo "next" || echo "latest" }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
