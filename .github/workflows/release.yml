@@ -32,7 +32,7 @@ jobs:
       - name: Set version from release tag
         id: set_version
         run: |
-          VERSION=$(echo ${{ github.ref }} | sed -e 's/refs\/tags\/v//')
+          VERSION=$(echo ${{ github.ref_name }})
           if [[ "${{ github.event.release.prerelease }}" == "true" ]]; then
             VERSION="$VERSION-beta"
           fi
