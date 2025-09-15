@@ -25,7 +25,6 @@ jobs:
         with:
           bun-version: latest
           registries: |
-            @durkinza/challenge-schema:https://registry.npmjs.org/|$NPM_TOKEN
             @durkinza/challenge-schema:https://npm.pkg.github.com/|$GITHUB_TOKEN
 
       - name: Install dependencies
@@ -69,4 +68,5 @@ jobs:
       - name: Publish to GitHub Packages
         run: bun publish --access restricted --ignore-scripts --tag ${{ steps.set_version.outputs.VERSION }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
