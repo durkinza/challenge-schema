@@ -20,13 +20,8 @@ jobs:
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           bun-version: latest
-          registries: |
-            @durkinza:https://npm.pkg.github.com/|$GITHUB_TOKEN
       
       - name: Install dependencies
         env:
@@ -56,7 +51,6 @@ jobs:
             challenge-pack.schema.json
           token: ${{ secrets.GITHUB_TOKEN }}
     
-
       # - name: Publish to NPM with standard tag
       #   run: bun publish --tag ${{ steps.set_version.outputs.VERSION }}
       #   env:
@@ -65,6 +59,4 @@ jobs:
       - name: Publish to GitHub Packages
         run: bun publish --access restricted --ignore-scripts --tag ${{ steps.set_version.outputs.VERSION }}
         env:
-          BUN_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
