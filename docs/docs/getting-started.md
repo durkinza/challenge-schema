@@ -47,45 +47,48 @@ If you like code completion, setting up the json-schema will tell your IDE how t
 To tell VSCode to expect all challenge.json and challenge-pack.json files to follow this scheme:
 
 ```json
-"json.schemas": [
-    {
-        "fileMatch": [
-            "/challenge.json",
-        ],
-        "url": "https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge.schema.json"
-    },
-    {
-        "fileMatch": [
-            "/challenge-pack.json",
-        ],
-        "url": "https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge-pack.schema.json"
-    },
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/challenge.json",
+            ],
+            "url": "https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge.schema.json"
+        },
+        {
+            "fileMatch": [
+                "/challenge-pack.json",
+            ],
+            "url": "https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge-pack.schema.json"
+        },
+    ]
+}
 ```
 
 ### Referencing schema directly in json files
 
 If you prefer to configure the schema on individual files, JSON provides a `$schema` field that can do just that:
-```bash
-# Add $schema to challenge.json file
+```json
 {
+    // Add $schema to challenge.json file
     "$schema": "https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge.schema.json",
-    ...// Rest of Json file.
+    //... Rest of Json file.
 }
 ```
 This will help with autocompletion and validation of challenge.json files.
 
 
-```bash
-# Add $schema to challenge-pack.json file
+```json
 {
+    // Add $schema to challenge-pack.json file
     "$schema": "https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge-pack.schema.json",
-    ...// Rest of Json file.
+    //... Rest of Json file.
 }
 ```
 This will help with autocompletion and validation of challenge-pack.json files.
 
 similarly, a challenge.yml and challenge-pack.yml file can be setup with 
-```bash
+```yml
 # Add $schema to challenge.json file
 $schema: https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge.schema.json
 # Rest of Json file.
@@ -93,7 +96,7 @@ $schema: https://github.com/durkinza/challenge-bundle-schema/releases/download/0
 This will help with autocompletion and validation of challenge.json files.
 
 
-```bash
+```yml
 # Add $schema to challenge-pack.json file
 $schema: https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge-pack.schema.json
 # Rest of Json file.

@@ -50,8 +50,8 @@ No required fields.
                 }
             ]
         }
-    },
-    ...
+    }
+    //...
 }
 ```
 
@@ -85,8 +85,8 @@ Often this could be useful for generating files for the player using a container
                 }
             ]
         }
-    },
-    ...
+    }
+    //...
 }
 ```
 

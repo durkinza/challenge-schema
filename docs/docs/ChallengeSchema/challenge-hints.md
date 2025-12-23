@@ -22,7 +22,7 @@ As a challenge designer, the challenge hints system allows you to provide progre
       "requirements": [1]
     }
   ]
-  ...
+  //...
 }
 ```
 

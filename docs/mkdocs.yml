@@ -72,7 +72,8 @@ nav:
           - Challenge Deployment Types: ChallengeSchema/ChallengeDeployment/index.md
           - Hosted Deployment: ChallengeSchema/ChallengeDeployment/hosted-deployment.md
           - Standard Deployment: ChallengeSchema/ChallengeDeployment/standard-deployment.md
-      - Challenge Flags: ChallengeSchema/challenge-flags.md
+      - Challenge Custom Flags: ChallengeSchema/challenge-custom-flags.md
+      - Challenge Default Flags: ChallengeSchema/challenge-default-flags.md
       - Challenge Hints: ChallengeSchema/challenge-hints.md
       - Challenge Solutions: ChallengeSchema/challenge-solutions.md
   - Challenge Pack Schema Reference:

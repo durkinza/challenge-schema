@@ -7,7 +7,7 @@ If your challenge does not support dynamic flags, this field not required.
 
 ## Basic Structure
 
-```json
+```
 {
   "name": "Challenge Name",
   "customFlag": {
@@ -22,7 +22,7 @@ If your challenge does not support dynamic flags, this field not required.
         "max": number
     }
   }
-  ...
+  //...
 }
 ```
 

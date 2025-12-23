@@ -20,41 +20,43 @@ Hosted deployments would be the best option for challenges that are long-lived.
 ## Container Details
 
 ```json
-"deployment": {
-  "type": "hosted",
-  "hosted": {
-    "container":{
-        "driver": "docker",
-        "image": "neverlanctf/sql_fun1:latest",
-        "imageDigest": "b1478f90313c2638ef14a2052a5cdcb85769c1a3750403f1c4cbb10d62d005ae",
-        "resourceRequirements":{
-            "cpu": 1024,
-            "memory": "256Mi",
-            "disk": "1Gi"
-        },
-        "ports": [
-            {
-                "port": 80,
-                "protocol": "tcp"
-            }
-        ],
-        "flagArg": "flag",
-        "output": [
-            {
-                "key": "user_creds",
-                "path": "/tmp/user_creds"
-            }
-        ]
-    },
-    "attachments": [
-        {
-            "name": "player_credentials",
-            "key": "user_creds",
-            "type": "text/plain"
+{
+    "deployment": {
+        "type": "hosted",
+        "hosted": {
+            "container":{
+                "driver": "docker",
+                "image": "neverlanctf/sql_fun1:latest",
+                "imageDigest": "b1478f90313c2638ef14a2052a5cdcb85769c1a3750403f1c4cbb10d62d005ae",
+                "resourceRequirements":{
+                    "cpu": 1024,
+                    "memory": "256Mi",
+                    "disk": "1Gi"
+                },
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "tcp"
+                    }
+                ],
+                "flagArg": "flag",
+                "output": [
+                    {
+                        "key": "user_creds",
+                        "path": "/tmp/user_creds"
+                    }
+                ]
+            },
+            "attachments": [
+                {
+                    "name": "player_credentials",
+                    "key": "user_creds",
+                    "type": "text/plain"
+                }
+            ]
         }
-    ]
-  },
-  ...
+    }
+    //...
 }
 ```
 
