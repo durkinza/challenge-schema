@@ -1,34 +1,50 @@
 {
-  "version": "0.2",
-  "language": "en",
-  "words": [
-    "unrepresentable"
-  ],
-  "flagWords": [],
-  "ignorePaths": [
-    "node_modules/**",
-    ".git/**",
-    "dist/**",
-    "build/**",
-    "coverage/**",
-    "*.min.*",
-    "package-lock.json",
-    "yarn.lock"
-  ],
-  "dictionaries": [
-    "typescript",
-    "node",
-    "npm",
-    "softwareTerms",
-    "containers"
-  ],
-  "allowCompoundWords": true,
-  "useGitignore": true,
-  "enableFiletypes": [
-    "json",
-    "jsonc",
-    "markdown",
-    "yaml",
-    "yml"
-  ]
+    "version": "0.2",
+    "language": "en",
+    "words": [
+        "unrepresentable",
+        "mkdocs",
+        "durkinza",
+        "bunx",
+        "neverlanctf",
+        "creds",
+        "C00kies",
+        "nlan",
+        "asdfasdfasdfas",
+        "pjson",
+        "pymdownx",
+        "linenums",
+        "inlinehilite",
+        "materialx"
+    ],
+    "flagWords": [],
+    "ignorePaths": [
+        "node_modules/**",
+        ".git/**",
+        "dist/**",
+        "build/**",
+        "coverage/**",
+        "*.min.*",
+        "package-lock.json",
+        "yarn.lock",
+        "docs/site/**",
+        "docs/.cache/**",
+        "docs/.venv/**"
+    ],
+    "dictionaries": [
+        "typescript",
+        "node",
+        "npm",
+        "softwareTerms",
+        "containers"
+    ],
+    "allowCompoundWords": true,
+    "useGitignore": true,
+    "enableFiletypes": [
+        "json",
+        "jsonc",
+        "markdown",
+        "yaml",
+        "yml"
+    ]
 }

@@ -1,0 +1,88 @@
+site_name: CTF Challenge Schema
+site_description: Documentation for the CTF Challenge Bundle Schemas
+site_url: https://durkinza.github.io/challenge-bundle-schema/
+repo_url: https://github.com/durkinza/challenge-bundle-schema
+repo_name: durkinza/challenge-bundle-schema
+
+theme:
+  name: material
+  palette:    
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+  
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: light
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    # - header.autohide
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.indexes
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - tables
+
+plugins:
+  - search
+  - privacy
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Challenge Schema Reference:
+      - Challenge Schema: ChallengeSchema/index.md
+      - Challenge Attachments: ChallengeSchema/challenge-attachments.md
+      - Challenge Flags: ChallengeSchema/challenge-flags.md
+      - Challenge Solutions: ChallengeSchema/challenge-solutions.md
+      - Challenge Deployment:
+          - Challenge Deployment Types: ChallengeSchema/ChallengeDeployment/index.md
+          - Hosted Deployment: ChallengeSchema/ChallengeDeployment/hosted-deployment.md
+          - Standard Deployment: ChallengeSchema/ChallengeDeployment/standard-deployment.md
+  - Challenge Pack Schema Reference:
+      - Overview: ChallengePackSchema/index.md
+      - Challenge Pack Schema: ChallengePackSchema/challenge-pack-schema.md
+  - Terminology: terminology/index.md
+  - Examples: examples/index.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/durkinza/challenge-bundle-schema
+
+extra_css:
+  - stylesheets/extra.css
