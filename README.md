@@ -127,7 +127,7 @@ bun run test:coverage
 bun run check:typecheck
 ```
 
-Note, jest and bun test are nearly identical in their configuration, so jest is also available as a convience.
+Note, jest and bun test are nearly identical in their configuration, so jest is also available as a convenience.
 If ever the 2 shall differ, bun tests would become the sole testing method.
 To run the test with jest, run:
 

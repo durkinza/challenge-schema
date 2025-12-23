@@ -7,12 +7,12 @@
             "category": "web",
             "value": 2,
             "prerequisites": [
-                "ceasar-cipher"
+                "caesar-cipher"
             ]
         },
         {
-            "id": "ceasar-cipher",
-            "path": "./ceasar-salad",
+            "id": "caesar-cipher",
+            "path": "./caesar-salad",
             "category": "crypto",
             "value": 1
         }
