@@ -13,7 +13,7 @@ The CTF Challenge Bundle and CTF Challenge Pack specifications are standardized 
 
 
 ## What is a Challenge Bundle?
-A Challenge Bundle is a grouping of a `challenge.json` file that follows the [challenge bundle Schema](#what-is-the-challenge-bundle-schema) and the neccessary source files for a challenge. 
+A Challenge Bundle is a grouping of a `challenge.json` file that follows the [challenge bundle Schema](#what-is-the-challenge-bundle-schema) and the necessary source files for a challenge. 
 The grouping is typically a zip of the files together into a portable bundle.
 
 ## What is the Challenge Bundle Schema?
@@ -27,7 +27,7 @@ The grouping is typically a zip of the files together into a portable pack of ch
 
 ## What is the Challenge Pack Schema?
 
-The Challenge Pack Schema is a JSON specification that defines a standardized format for a grouping of [challenge bundles](#what-is-a-challenge-bundle). It enables event corordinators and challenge authors to define a grouping of challenges that work well together.
+The Challenge Pack Schema is a JSON specification that defines a standardized format for a grouping of [challenge bundles](#what-is-a-challenge-bundle). It enables event coordinators and challenge authors to define a grouping of challenges that work well together.
 
 
 ## Provided Tools
@@ -35,7 +35,7 @@ The Challenge Pack Schema is a JSON specification that defines a standardized fo
 Along with defining the schemas, this project provides a few ways to validate that a json file matches the schema properly.
 Check out the [Getting Started](getting-started.md) page for more information on how to setup these tools.
 
-For challenge bundle and challange pack authors, 
+For challenge bundle and challenge pack authors, 
 a json spec is published for each schema and can be used in IDEs to help in code completion and generation.
 There is also a command line tool for validation of a json file.
 

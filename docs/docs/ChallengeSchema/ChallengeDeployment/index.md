@@ -3,7 +3,7 @@
 The `deployment` field defines how the challenge should be deployed or setup to be executed.  
 A challenge can be deployed either 'standard' or 'hosted', but not both.
 
-Standard Deployements are short-lived setups, where the challenge content is generated before a players starts and does not require re deployment.
+Standard Deployments are short-lived setups, where the challenge content is generated before a players starts and does not require re deployment.
 
 Standard Deployment:
 ```json
@@ -57,7 +57,7 @@ Standard Deployment:
 }
 ```
 
-Hosted deployments are expected to be running continuosly throughout the challenge lifetime.
+Hosted deployments are expected to be running continuously throughout the challenge lifetime.
 
 Hosted Deployment:
 ```json
@@ -100,7 +100,7 @@ Supported deployment types:
 Hosted deployments would be the best option for challenges that are long-lived. 
 An example would be a web service, where the player would be expected to attack the web-service to retrieve the flag.
 
-Hosted deployments could be used for individual challenge instances, where each player recieve's their own instance, or for shared instances where all players talk to the same instance.
+Hosted deployments could be used for individual challenge instances, where each player receives their own instance, or for shared instances where all players talk to the same instance.
 
 
 ## Required Fields

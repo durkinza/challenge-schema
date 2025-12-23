@@ -1,11 +1,11 @@
 # Terminology
 
-This page is just for adding some clarification on specific terms used in this documentations.
+This page is just for adding some clarification on specific terms used in this documentation.
 
 ## Challenge Bundle
 
-A Challenge Bundle is a single CTF challenge bundled up and ready for distrobution. 
-Typcially this consists of at least a challenge.json file and any supporting files for your challenge.
+A Challenge Bundle is a single CTF challenge bundled up and ready for distribution. 
+Typically this consists of at least a challenge.json file and any supporting files for your challenge.
 
 
 ## Challenge Schema
@@ -40,7 +40,7 @@ Often these are either plugins for a CTF platform, or the CTF platform itself it
 ## Positions
 
 # Challenge Designer
-The challenge designer is the person that develops the challenge and builds the challenge.json filed to bundle the challenge.
+The challenge designer is the person that develops the challenge and builds the challenge.json file to bundle the challenge.
 
 # Challenge Publisher
 The challenge publisher is the person that publishes the challenge bundle for event coordinators to use. This is often the same person as the challenge designer.

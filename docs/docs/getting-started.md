@@ -44,7 +44,7 @@ bunx @durkinza/challenge-bundle-schema validate -t pack challenge-pack.json
 If you like code completion, setting up the json-schema will tell your IDE how the schema looks and then your IDE can provide code completion options.
 
 ### VSCode
-To tell VSCode to exect all challnge.json and challenge-pack.json files to follow this scheme:
+To tell VSCode to expect all challenge.json and challenge-pack.json files to follow this scheme:
 
 ```json
 "json.schemas": [

@@ -59,18 +59,18 @@ Hosted deployments would be the best option for challenges that are long-lived.
 
 ## Container Hosted Deployments
 
-Container deployements are meant for a single container to be setup for the challenge. 
+Container deployments are meant for a single container to be setup for the challenge. 
 The driver for the hosted deployment determines what type of image should be expected. 
 
-For example, an iso image could be provied for a vmware driver, or a docker image for a kubernetes driver.
-The imageDiggest holds the sha of the container image to ensure the downloaded image is the expected image.
+For example, an iso image could be provided for a vmware driver, or a docker image for a kubernetes driver.
+The imageDigest holds the sha of the container image to ensure the downloaded image is the expected image.
 
 ## Stack Hosted Deployments (work in progress)
 
-Stack deployements are meant for a multiple container deployments. 
+Stack deployments are meant for a multiple container deployments. 
 The driver for the hosted deployment determines what type of image should be expected. 
 
-For example, a vagrant stack could be provied for a vagrant driver, or a docker compose stack for a docker swarm driver.
+For example, a vagrant stack could be provided for a vagrant driver, or a docker compose stack for a docker swarm driver.
 
 ## Attachments
 

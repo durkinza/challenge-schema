@@ -54,13 +54,13 @@ Challenge Attachments fields are provided when defining the challenge deployment
 ##  From File
 
 Attachments provided to the player that are a file in the challenge bundle.
-These are often static assests that the challenge author provides to assist in the challenge.
+These are often static assets that the challenge author provides to assist in the challenge.
 
 ## From Container or Script
 
 Attachments can be generated during the build process of a challenge. 
 The key is a unique identifier that is provided in the challenge deployment field.
-The key must be in the "outputs" section of the container fields to be used in the attachements.
+The key must be in the "outputs" section of the container fields to be used in the attachments.
 
 The file will be pulled from the container and provided to the player. 
 This could be helpful for providing the player with initial login credentials, or the generated cipher text.

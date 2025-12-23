@@ -16,7 +16,7 @@ Steps can be split into their own entries in the solutions array, or combined to
         3: Note the additional file available at /abcd.html
         ",
         "## SQL Injecting on the hidden file
-        1: Open the hiden page on the server and find the input form.
+        1: Open the hidden page on the server and find the input form.
         2: Perform a SQL injection attack and try to login without a password.
             a: This can be performed using `asdf\" Or 1=1; --` in the username field.
         "

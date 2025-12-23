@@ -11,8 +11,8 @@ This is a simple cryptography challenge using a Caesar cipher:
 ```json
 {
     "$schema": "https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge.schema.json",
-    "name": "Ceasar Cipher",
-    "description": "A simple ceasar cipher challenge. The flag is encoded in the text!",
+    "name": "Caesar Cipher",
+    "description": "A simple Caesar cipher challenge. The flag is encoded in the text!",
     "points": 100,
     "category":  ["trivia", "examples"],
     "flag": {
@@ -26,8 +26,8 @@ This is a simple cryptography challenge using a Caesar cipher:
             "regex": "/(\\w)/i"
         },
         "validation":{
-            "regex": ["/flag{ceasar_salad}/i"],
-            "static": ["flag{ceasar_salad}"]
+            "regex": ["/flag{Caesar_salad}/i"],
+            "static": ["flag{Caesar_salad}"]
         }
     },
     "deployment": {
@@ -63,7 +63,7 @@ This is a simple cryptography challenge using a Caesar cipher:
     "language": "english",
     "solutions": [
         "Open the cipher.txt file",
-        "Decrypt the text using a ceasar cipher with a shift of 13"
+        "Decrypt the text using a Caesar cipher with a shift of 13"
     ]
 }
 ```

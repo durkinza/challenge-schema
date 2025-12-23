@@ -40,7 +40,7 @@ npx @durkinza/challenge-schema validate --type challenge ./challenge.json
 npx @durkinza/challenge-schema validate --type pack ./challenge-pack.json
 ```
 
-If you want to implement the schema parsing directly in your project, that can ge done too
+If you want to implement the schema parsing directly in your project, that can be done too
 ```bash
 # Using npm
 npm install @durkinza/challenge-bundle-schema

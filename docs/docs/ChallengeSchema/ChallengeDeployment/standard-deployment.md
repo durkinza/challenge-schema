@@ -27,7 +27,7 @@ No required fields.
             "buildType": "container",
             "container":{
                 "driver": "docker",
-                "image": "neverlanctf/cryopto-gen:latest",
+                "image": "neverlanctf/crypto-gen:latest",
                 "imageDigest": "b1478f90313c2638ef14a2052a5cdcb85769c1a3750403f1c4cbb10d62d005ae",
                 "resourceRequirements":{
                     "cpu": 1024,
@@ -55,7 +55,7 @@ No required fields.
 }
 ```
 
-Container deployments run a container to assist in the building of attachements for the player.
+Container deployments run a container to assist in the building of attachments for the player.
 Often this could be useful for generating files for the player using a container as the build environment.
 
 
@@ -91,13 +91,13 @@ Often this could be useful for generating files for the player using a container
 ```
 
 Script deployments use the hosting environment directly to build output files for the player. 
-While simplilar to write, this deployment option can often pose issues where the executing environment may not have the right dependences for the build script.
+While easier to write, this deployment option can often pose issues where the executing environment may not have the right dependencies for the build script.
 This can also pose a security risk to the event coordinators where the build script could make changes on the executing system instead of being limited to an executing environment.
 
 
 ## Attachments
 
-Attachements should be built in either the container or the script deployment types.
+Attachments should be built in either the container or the script deployment types.
 If no build process is required for your challenge, use the standard-script deployment type.
 
 Attachments here are the same as the [challenge-attachments](../challenge-attachments.md)

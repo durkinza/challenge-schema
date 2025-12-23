@@ -23,13 +23,6 @@ Examples:
   npx @durkinza/challenge-schema validate --type challenge ./challenge.json
   bunx @durkinza/challenge-schema validate --type pack ./challenge-pack.json
 `);
-  //   npx create-ctf-challenge --type web-docker-php
-  //   npx create-ctf-template --type python-script
-  //   npx create-ctf-pack --type trivia
-  //   npx @durkinza/challenge-schema challenge-from-template --type web-docker-php
-  //   npx @durkinza/challenge-schema challenge-from-template --type python-script
-  //   npx @durkinza/challenge-schema challenge-from-template --type trivia
-  //   `);
 };
 
 const main = async () => {
