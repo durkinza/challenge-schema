@@ -1,0 +1,28 @@
+{
+    "$schema": "../../../challenge.schema.json",
+    "name": "Cookie-Monster",
+    "description": "There's trouble on Seasame Street! The Cookie Monster needs your help to find his cookies!",
+    "author": {
+        "name": "NeverLANCTF",
+        "email": "info@neverlanctf.org",
+        "website": "https://neverlanctf.org"
+    },
+    "language": "english",
+    "solutions": [
+        "Load the page the first time",
+        "Look for a cookie in your browser that is called `Red_Guy's_name` and change the value to 'Elmo'",
+        "Reload the page to submit the new cookie and obtain the flag"
+    ],
+    "hints": [
+        {
+            "id": 1,
+            "title": "First Hint",
+            "hint": "First Hint Content"
+        },
+        {
+            "id": 1,
+            "title": "Second Hint",
+            "hint": "Second Hint Content"
+        }
+    ]
+}

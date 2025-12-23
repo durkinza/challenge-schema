@@ -4,8 +4,12 @@
     "description": "There's trouble on Seasame Street! The Cookie Monster needs your help to find his cookies!",
     "flag": {
         "validation": {
-            "static": ["flag{C00kies_4r3_the_b3st}"],
-            "regex": ["/(flag)?{?C00kies_4r3_the_b3st}?/i"]
+            "static": [
+                "flag{C00kies_4r3_the_b3st}"
+            ],
+            "regex": [
+                "/(flag)?{?C00kies_4r3_the_b3st}?/i"
+            ]
         },
         "generation": {
             "allowedCharacters": {
@@ -17,7 +21,7 @@
             "regex": "/(\\w)/i"
         }
     },
-    "points": 0,
+    "points": 100,
     "category": "web",
     "deployment": {
         "type": "hosted",
@@ -44,6 +48,22 @@
         "email": "info@neverlanctf.org",
         "website": "https://neverlanctf.org"
     },
+    "hints": [
+        {
+            "id": 1,
+            "title": "Using your browser",
+            "hint": "Use your browser's developer tools to inspect cookies.",
+            "cost": 10
+        },
+        {
+            "id": 2,
+            "title": "Who is the Cookie Monster?",
+            "hint": "The Cookie Monster is a character on the show Seasame Street. His friend Elmo is Red.",
+            "requirements": [
+                1
+            ]
+        }
+    ],
     "language": "english",
     "solutions": [
         "Load the page the first time",
