@@ -53,7 +53,8 @@ Hosted deployments would be the best option for challenges that are long-lived.
             "type": "text/plain"
         }
     ]
-  }
+  },
+  ...
 }
 ```
 
