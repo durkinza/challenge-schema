@@ -30,8 +30,8 @@ jobs:
       - name: Cache MkDocs dependencies
         uses: actions/cache@v3
         with:
-            key: ${{ github.ref }}
-            path: ./docs/.cache
+          key:  mkdocs-${{ runner.os }}-${{ hashFiles('docs/**') }}
+          path: ./docs/.cache
 
       - name: Install dependencies
         run: |
