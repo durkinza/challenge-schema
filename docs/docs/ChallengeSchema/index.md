@@ -23,6 +23,13 @@ The Challenge Schema defines the structure of individual challenges.
         ]
     }
   },
+  "hints": [
+    {
+        "id": 1,
+        "title": "First Hint",
+        "description": "This is your first hint!"
+    }
+  ],
   "author": {
     "name": "Author Name",
     "email": "author.email@example.com"

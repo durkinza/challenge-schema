@@ -68,12 +68,13 @@ nav:
   - Challenge Schema Reference:
       - Challenge Schema: ChallengeSchema/index.md
       - Challenge Attachments: ChallengeSchema/challenge-attachments.md
-      - Challenge Flags: ChallengeSchema/challenge-flags.md
-      - Challenge Solutions: ChallengeSchema/challenge-solutions.md
       - Challenge Deployment:
           - Challenge Deployment Types: ChallengeSchema/ChallengeDeployment/index.md
           - Hosted Deployment: ChallengeSchema/ChallengeDeployment/hosted-deployment.md
           - Standard Deployment: ChallengeSchema/ChallengeDeployment/standard-deployment.md
+      - Challenge Flags: ChallengeSchema/challenge-flags.md
+      - Challenge Hints: ChallengeSchema/challenge-hints.md
+      - Challenge Solutions: ChallengeSchema/challenge-solutions.md
   - Challenge Pack Schema Reference:
       - Overview: ChallengePackSchema/index.md
       - Challenge Pack Schema: ChallengePackSchema/challenge-pack-schema.md

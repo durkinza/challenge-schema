@@ -4,6 +4,7 @@ import pjson from "../../package.json";
 import { challengeAuthor } from "./challengeAuthor";
 import { challengeDeployment } from "./challengeDeployment";
 import { challengeFlag } from "./challengeFlag";
+import { challengeHints } from "./challengeHints";
 import { challengeSolutions } from "./challengeSolutions";
 
 const version: string = pjson.version;
@@ -24,6 +25,7 @@ export const Challenge = z
         examples: ["English", "French", "Spanish"],
       })
       .optional(),
+    hints: challengeHints.optional(),
     solutions: challengeSolutions.optional(),
     flag: challengeFlag,
     points: z
