@@ -57,7 +57,7 @@ describe('Challenge Bundle Schema Validation', () => {
                 validateChallengeBundle(challenge);
             }).toThrowError();
         });
-        it('should identify duplicat hint Ids as a validation error', () => {
+        it('should identify duplicate hint Ids as a validation error', () => {
             const challenge = loadChallengeFile(inValidChallengeBundle[2]);
             expect(() => {
                 validateChallengeBundle(challenge);
