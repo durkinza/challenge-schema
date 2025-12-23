@@ -17,21 +17,46 @@ A Schema for Sharing CTF Challenges in a portable bundle.
 To use this package in your project, you can install it using Bun:
 
 ```bash
-bun add challenge-bundle-schema
+bun add @durkinza/challenge-schema
 ```
 
 Or with npm:
 
 ```bash
-npm install challenge-bundle-schema
+npm install @durkinza/challenge-schema
 ```
 
 ## 🚀 Usage
 
 The challenge-bundle-schema provides validation for both individual challenge bundles and challenge packs.
 
+```bash
+# with bunx
+bunx @durkinza/challenge-schema validate --type challenge ./challenge.json
+bunx @durkinza/challenge-schema validate --type pack ./challenge-pack.json
+
+# With npx
+npx @durkinza/challenge-schema validate --type challenge ./challenge.json
+npx @durkinza/challenge-schema validate --type pack ./challenge-pack.json
+```
+
+If you want to implement the schema parsing directly in your project, that can ge done too
+```bash
+# Using npm
+npm install @durkinza/challenge-bundle-schema
+
+# Using yarn
+yarn add @durkinza/challenge-bundle-schema
+
+# Using pnpm
+pnpx add @durkinza/challenge-bundle-schema
+
+# Using Bun
+bun add @durkinza/challenge-bundle-schema
+```
+
 ```typescript
-import { validateChallengeBundle, validateChallengePack } from 'challenge-bundle-schema';
+import { validateChallengeBundle, validateChallengePack } from '@durkinza/challenge-schema';
 
 // Validate a challenge bundle
 try {
@@ -140,6 +165,11 @@ The build process consists of three steps:
    bun run build:yaml-schema
    ```
    This generates YAML validation using Python.
+
+## Building Docs
+
+Documents are build with mkdocs
+Check the [docs/readme](./docs/README.md) for how to build and publish the docs.
 
 ## 🤝 Contributing
 

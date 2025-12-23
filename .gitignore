@@ -137,3 +137,9 @@ dist
 
 # Generate Schema names
 *.schema.json
+
+# Python Environments
+.venv/
+
+# MKDocs site output
+docs/site
