@@ -1,6 +1,6 @@
 import { ChallengePack } from "@challenge-pack";
-import * as fs from 'fs';
 import { Challenge } from "@challenge-schema";
+import * as fs from 'fs';
 import { z } from 'zod';
 
 const ChallengeSchema = z.toJSONSchema(Challenge, { unrepresentable: "throw", cycles: "ref" });
