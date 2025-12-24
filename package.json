@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "description": "A schema for sharing CTF Challenges in a portable bundle.",
     "main": "dist/index.js",
-    "types": "dist/src/index.d.ts",
+    "types": "dist/index.d.ts",
     "module": "dist/index.js",
     "bin": {
         "challenge-schema": "dist/cli.js"
