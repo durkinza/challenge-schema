@@ -5,10 +5,10 @@
         "rootDir": "./src",
         "baseUrl": "./src",
         "paths": {
-            "@challenge-bundle": [
+            "@challenge-schema": [
                 "./challenge-schema"
             ],
-            "@challenge-bundle/*": [
+            "@challenge-schema/*": [
                 "./challenge-schema/*"
             ],
             "@challenge-pack": [
@@ -17,7 +17,7 @@
             "@challenge-pack/*": [
                 "./challenge-pack-schema/*"
             ]
-        },
+        }
     },
     "exclude": [
         "jest.config.ts",
