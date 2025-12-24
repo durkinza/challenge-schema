@@ -27,7 +27,7 @@ The Challenge Schema defines the structure of individual challenges.
         "allowedCharacters": {
             "lowercase": true,
             "uppercase": true,
-            "number": true,
+            "numbers": true,
             "specialCharacters": true,
         }
     },

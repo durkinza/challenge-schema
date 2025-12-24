@@ -93,18 +93,17 @@ This example shows a web application challenge with container deployment:
     "static": ["flag{c00k13_m0nst3r}"]
   },
   "deployment": {
-    "type": "container",
-    "options": {
-      "image": "challenge/cookie-monster:latest",
-      "ports": [
-        {
-          "container": 80,
-          "host": 8080
+    "type": "hosted",
+    "hosted": {
+        "container": {
+            "driver": "docker",
+            "image": "challenge/cookie-monster:latest",
+            "ports": [{
+                "port": 80,
+                "protocol": "tcp"
+            }],
+            "flagArg": "flag",
         }
-      ],
-      "environment": {
-        "FLAG": "{{flag}}"
-      }
     }
   },
   "solutions": [

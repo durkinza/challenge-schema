@@ -2,7 +2,7 @@ import { z } from "zod";
 
 import pjson from "../../package.json";
 import { challengeAuthor } from "./challengeAuthor";
-import { challengeCustomFlag } from "./challengeCustomFlagContent";
+import { challengeCustomFlag } from "./challengeCustomFlag";
 import { challengeDefaultFlag } from "./challengeDefaultFlag";
 import { challengeDeployment } from "./challengeDeployment";
 import { challengeHints } from "./challengeHints";
