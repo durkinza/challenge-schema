@@ -1,5 +1,5 @@
+import { challengeAuthor } from '@challenge-schema/challengeAuthor';
 import { describe, expect, it } from "bun:test";
-import { challengeAuthor } from 'src/challenge-schema/challengeAuthor';
 
 describe('Challenge Author Schema Validation', () => {
     it('should validate the full challenge author schema', () => {
