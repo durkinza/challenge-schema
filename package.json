@@ -27,7 +27,7 @@
         "test:watch": "bun test --watch",
         "test:coverage": "bun test --coverage",
         "test:spelling": "bunx cspell './**/*.{ts,tsx,js,jsx,json,md,yml,yaml}'",
-        "build": "bun run build:dist  && bun run build:tsc && bun run build:json-schema",
+        "build": "bun run build:tsc && bun run build:dist && bun run build:json-schema",
         "build:dist": "bun build ./src/index.ts ./src/cli.ts --outdir ./dist --target='node' --sourcemap='linked' --packages=external --minify",
         "build:tsc": "tsc --project tsconfig.dts.json --outDir ./dist",
         "build:json-schema": "bun ./scripts/build-json-schema.ts",
