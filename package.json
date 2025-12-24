@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "description": "A schema for sharing CTF Challenges in a portable bundle.",
     "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "types": "dist/src/index.d.ts",
     "module": "dist/index.js",
     "bin": {
         "challenge-schema": "dist/cli.js"
@@ -27,9 +27,9 @@
         "test:watch": "bun test --watch",
         "test:coverage": "bun test --coverage",
         "test:spelling": "bunx cspell './**/*.{ts,tsx,js,jsx,json,md,yml,yaml}'",
-        "build": "bun run build:dist  && bun run build:dts && bun run build:json-schema",
+        "build": "bun run build:dist  && bun run build:tsc && bun run build:json-schema",
         "build:dist": "bun build ./src/index.ts ./src/cli.ts --outdir ./dist --target='node' --sourcemap='linked' --packages=external --minify",
-        "build:dts": "bunx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --project=tsconfig.json",
+        "build:tsc": "tsc --project tsconfig.dts.json --outDir ./dist",
         "build:json-schema": "bun ./scripts/build-json-schema.ts",
         "docs:generate": "mkdocs build -f ./docs/mkdocs.yml --clean",
         "docs:serve": "mkdocs serve -w ./docs/docs/ -f ./docs/mkdocs.yml",
@@ -43,7 +43,6 @@
         "@eslint/eslintrc": "^3.3.3",
         "@eslint/js": "^9.39.2",
         "@eslint/markdown": "^7.5.1",
-        "@types/node": "^25.0.3",
         "@typescript-eslint/eslint-plugin": "^8.50.1",
         "@typescript-eslint/parser": "^8.50.1",
         "bun-plugin-dts": "^0.3.0",

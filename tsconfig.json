@@ -13,10 +13,10 @@
         "forceConsistentCasingInFileNames": true,
         "baseUrl": ".",
         "paths": {
-            "@challenge-bundle": [
-                "src/challenge-schema"
+            "@challenge-schema": [
+                "./src/challenge-schema"
             ],
-            "@challenge-bundle/*": [
+            "@challenge-schema/*": [
                 "./src/challenge-schema/*"
             ],
             "@challenge-pack": [
