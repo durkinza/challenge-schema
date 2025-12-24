@@ -1,13 +1,14 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from "bun:test";
 import fs from 'fs';
 import path from 'path';
 
 import { validateChallengeBundle } from '../src/index';
 
-const validChallengeBundles = [
-    './examples/cookie-monster/challenge.json'
+const validChallenges = [
+    './examples/cookie-monster/challenge.json',
+    './examples/caesar-cipher/challenge.json'
 ];
-const inValidChallengeBundle = [
+const inValidChallenges = [
     './bad-examples/empty/challenge.json',
     './bad-examples/missing-flag-options/challenge.json',
     './bad-examples/duplicate-hint-ids/challenge.json',
@@ -24,13 +25,13 @@ describe('Challenge Bundle Schema Validation', () => {
 
     describe('Cookie Monster Challenge', () => {
         it('should load the challenge file', () => {
-            const challenge = loadChallengeFile(validChallengeBundles[0]);
+            const challenge = loadChallengeFile(validChallenges[0]);
             expect(challenge).toBeDefined();
             expect(challenge.name).toBe('Cookie-Monster');
         });
 
         it('should pass validation', () => {
-            const challenge = loadChallengeFile(validChallengeBundles[0]);
+            const challenge = loadChallengeFile(validChallenges[0]);
 
             expect(() => {
                 validateChallengeBundle(challenge);
@@ -40,25 +41,49 @@ describe('Challenge Bundle Schema Validation', () => {
             const result = validateChallengeBundle(challenge);
             expect(result).toBeDefined();
             expect(result.name).toBe('Cookie-Monster');
-            expect(result.flag.validation.static[0]).toBe('flag{C00kies_4r3_the_b3st}');
+            expect(result.defaultFlag?.static?.[0]).toBe('flag{C00kies_4r3_the_b3st}');
         });
     });
+
+
+    describe('Caesar Cipher Challenge', () => {
+        it('should load the challenge file', () => {
+            const challenge = loadChallengeFile(validChallenges[1]);
+            expect(challenge).toBeDefined();
+            expect(challenge.name).toBe('Caesar Cipher');
+        });
+
+        it('should pass validation', () => {
+            const challenge = loadChallengeFile(validChallenges[1]);
+
+            expect(() => {
+                validateChallengeBundle(challenge);
+            }).toBeTruthy();
+
+            // This should not throw an error
+            const result = validateChallengeBundle(challenge);
+            expect(result).toBeDefined();
+            expect(result.name).toBe('Caesar Cipher');
+            expect(result.defaultFlag?.static?.[0]).toBe('flag{caesar_salad}');
+        });
+    });
+
     describe('Bad Challenge Bundles', () => {
 
         it('should identify specific validation errors', () => {
-            const challenge = loadChallengeFile(inValidChallengeBundle[0]);
+            const challenge = loadChallengeFile(inValidChallenges[0]);
             expect(() => {
                 validateChallengeBundle(challenge);
             }).toThrowError();
         });
         it('should identify missing flag options as a validation error', () => {
-            const challenge = loadChallengeFile(inValidChallengeBundle[1]);
+            const challenge = loadChallengeFile(inValidChallenges[1]);
             expect(() => {
                 validateChallengeBundle(challenge);
             }).toThrowError();
         });
         it('should identify duplicate hint Ids as a validation error', () => {
-            const challenge = loadChallengeFile(inValidChallengeBundle[2]);
+            const challenge = loadChallengeFile(inValidChallenges[2]);
             expect(() => {
                 validateChallengeBundle(challenge);
             }).toThrowError();

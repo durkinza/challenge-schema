@@ -2,8 +2,9 @@ import { z } from "zod";
 
 import pjson from "../../package.json";
 import { challengeAuthor } from "./challengeAuthor";
+import { challengeCustomFlag } from "./challengeCustomFlag";
+import { challengeDefaultFlag } from "./challengeDefaultFlag";
 import { challengeDeployment } from "./challengeDeployment";
-import { challengeFlag } from "./challengeFlag";
 import { challengeHints } from "./challengeHints";
 import { challengeSolutions } from "./challengeSolutions";
 
@@ -17,6 +18,8 @@ export const Challenge = z
       .meta({ description: "A short description of the challenge." })
       .optional(),
     deployment: challengeDeployment,
+    defaultFlag: challengeDefaultFlag,
+    customFlag: challengeCustomFlag.optional(),
     author: challengeAuthor.optional(),
     language: z
       .string()
@@ -27,7 +30,6 @@ export const Challenge = z
       .optional(),
     hints: challengeHints.optional(),
     solutions: challengeSolutions.optional(),
-    flag: challengeFlag,
     points: z
       .number()
       .default(0)

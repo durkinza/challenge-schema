@@ -24,23 +24,25 @@ No required fields.
     "deployment": {
         "type": "standard",
         "standard": {
-            "buildType": "container",
-            "container":{
-                "driver": "docker",
-                "image": "neverlanctf/crypto-gen:latest",
-                "imageDigest": "b1478f90313c2638ef14a2052a5cdcb85769c1a3750403f1c4cbb10d62d005ae",
-                "resourceRequirements":{
-                    "cpu": 1024,
-                    "memory": "256Mi",
-                    "disk": "1Gi"
+            "build":{
+                "buildType": "container",
+                "container":{
+                    "driver": "docker",
+                    "image": "neverlanctf/crypto-gen:latest",
+                    "imageDigest": "b1478f90313c2638ef14a2052a5cdcb85769c1a3750403f1c4cbb10d62d005ae",
+                    "resourceRequirements":{
+                        "cpu": 1024,
+                        "memory": "256Mi",
+                        "disk": "1Gi"
+                    },
+                    "flagArg": "flag",
+                    "output": [
+                        {
+                            "key": "cipher_text",
+                            "path": "/tmp/cipher_text.txt"
+                        }
+                    ]
                 },
-                "flagArg": "flag",
-                "output": [
-                    {
-                        "key": "cipher_text",
-                        "path": "/tmp/cipher_text.txt"
-                    }
-                ]
             },
             "attachments": [
                 {
@@ -50,8 +52,8 @@ No required fields.
                 }
             ]
         }
-    },
-    ...
+    }
+    //...
 }
 ```
 
@@ -66,16 +68,18 @@ Often this could be useful for generating files for the player using a container
     "deployment": {
         "type": "standard",
         "standard": {
-            "buildType": "script",
-            "script":{
-                "path": "./build.sh",
-                "flagArg": "flag",
-                "outputs": [
-                    {
-                        "key": "cipher_text",
-                        "path": "./cipher_text.txt"
-                    }
-                ]
+            "build": {
+                "buildType": "script",
+                "script":{
+                    "path": "./build.sh",
+                    "flagArg": "flag",
+                    "outputs": [
+                        {
+                            "key": "cipher_text",
+                            "path": "./cipher_text.txt"
+                        }
+                    ]
+                },
             },
             "attachments": [
                 {
@@ -85,8 +89,8 @@ Often this could be useful for generating files for the player using a container
                 }
             ]
         }
-    },
-    ...
+    }
+    //...
 }
 ```
 

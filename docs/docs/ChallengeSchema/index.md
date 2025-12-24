@@ -6,37 +6,45 @@ The Challenge Schema defines the structure of individual challenges.
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/durkinza/challenge-bundle-schema/main/challenge.schema.json",
-  "name": "Challenge Name",
-  "description": "Challenge description",
-  "difficulty": "medium",
-  "category": "web",
-  "deployment": {
-    "type": "standard",
-    "standard":{
-        "attachments": [
-            {
-                "name": "here_is_your_flag",
-                "type": "text/plain",
-                "content": "Hello World, your flag is flag{flag}",
-            },
-        ]
-    }
-  },
-  "hints": [
+    "$schema": "https://raw.githubusercontent.com/durkinza/challenge-bundle-schema/main/challenge.schema.json",
+    "name": "Challenge Name",
+    "description": "Challenge description",
+    "difficulty": "medium",
+    "category": "web",
+    "deployment": {
+        "type": "standard",
+        "standard": {
+            "attachments": [
+                {
+                    "name": "here_is_your_flag",
+                    "type": "text/plain",
+                    "content": "Hello World, your flag is flag{flag}",
+                },
+            ]
+        }
+    },
+    "customFlag":{
+        "allowedCharacters": {
+            "lowercase": true,
+            "uppercase": true,
+            "numbers": true,
+            "specialCharacters": true,
+        }
+    },
+    "hints": [
     {
         "id": 1,
         "title": "First Hint",
         "hint": "This is your first hint!"
     }
-  ],
-  "solutions": [
-    ""
-  ],
-  "author": {
-    "name": "Author Name",
-    "email": "author.email@example.com"
-  },
+    ],
+    "solutions": [
+        "Here's how to solve this challenge..."
+    ],
+    "author": {
+        "name": "Author Name",
+        "email": "author.email@example.com"
+    },
 }
 ```
 

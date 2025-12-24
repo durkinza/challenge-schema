@@ -42,12 +42,12 @@ Challenge Attachments fields are provided when defining the challenge deployment
             {
                 "name": "here_is_your_flag",
                 "type": "text/plain",
-                "content": "Hello World, your flag is flag{flag}",
-            },
+                "content": "Hello World, your flag is flag{flag}"
+            }
         ]
     }
   }
-  ...
+  //...
 }
 ```
 

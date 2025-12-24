@@ -27,10 +27,11 @@ Standard Deployment:
                 }
             ]
         }
-    },
-    ...
+    }
+    //...
 }
 ```
+
 ```json
 {
     "deployment": {
@@ -52,8 +53,8 @@ Standard Deployment:
                 }
             ]
         }
-    },
-    ...
+    }
+    //...
 }
 ```
 
@@ -76,8 +77,8 @@ Hosted Deployment:
                 ],
             },
         }
-    },
-    ...
+    }
+    //...
 }
 ```
 

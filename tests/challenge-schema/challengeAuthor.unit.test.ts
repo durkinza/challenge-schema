@@ -1,4 +1,4 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from "bun:test";
 import { challengeAuthor } from 'src/challenge-schema/challengeAuthor';
 
 describe('Challenge Author Schema Validation', () => {

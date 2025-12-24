@@ -4,24 +4,25 @@
     "description": "A simple Caesar cipher challenge. The flag is hidden in the text.",
     "points": 0,
     "category": "web",
-    "flag": {
-        "generation": {
-            "allowedCharacters": {
-                "lowercase": true,
-                "uppercase": false,
-                "numbers": false,
-                "specialCharacters": false
-            },
-            "regex": "/(\\w)/i"
+    "customFlag": {
+        "allowedCharacters": {
+            "lowercase": true,
+            "uppercase": false,
+            "numbers": false,
+            "specialCharacters": false
         },
-        "validation": {
-            "regex": [
-                "/flag{Caesar_salad}/i"
-            ],
-            "static": [
-                "flag{Caesar_salad}"
-            ]
+        "length": {
+            "max": 4000
         }
+    },
+    "defaultFlag": {
+        "regex": [
+            "/(flag)?{?caesar_salad}?/i"
+        ],
+        "static": [
+            "flag{caesar_salad}",
+            "caesar_salad"
+        ]
     },
     "deployment": {
         "type": "standard",
@@ -43,8 +44,7 @@
                 {
                     "name": "Cipher.txt",
                     "type": "text/plain",
-                    "key": "cipher.txt",
-                    "path": "cipher.txt"
+                    "key": "cipher.txt"
                 }
             ]
         }

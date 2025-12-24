@@ -14,21 +14,18 @@ This is a simple cryptography challenge using a Caesar cipher:
     "name": "Caesar Cipher",
     "description": "A simple Caesar cipher challenge. The flag is encoded in the text!",
     "points": 100,
-    "category":  ["trivia", "examples"],
-    "flag": {
-        "generation": {
-            "allowedCharacters": {
-                "lowercase": true,
-                "uppercase": false,
-                "numbers": false,
-                "specialCharacters": false
-            },
-            "regex": "/(\\w)/i"
+    "category":  "crypto",
+    "defaultFlag": {
+        "regex": ["/(flag)?{?caesar_salad}?/i"],
+        "static": ["flag{caesar_salad}", "caesar_salad"]
+    },
+    "customFlag": {
+        "allowedCharacters": {
+            "lowercase": true,
+            "uppercase": false,
+            "numbers": false,
+            "specialCharacters": false
         },
-        "validation":{
-            "regex": ["/flag{Caesar_salad}/i"],
-            "static": ["flag{Caesar_salad}"]
-        }
     },
     "deployment": {
         "type": "standard",
@@ -91,36 +88,30 @@ This example shows a web application challenge with container deployment:
     "name": "Example Author",
     "email": "author@example.com"
   },
-  "flag": {
-    "type": "static",
-    "content": "flag{c00k13_m0nst3r}"
+  "defaultFlag": {
+    "regex": ["/(flag)?{?c00k13_m0nst3r}?/i"],
+    "static": ["flag{c00k13_m0nst3r}"]
   },
   "deployment": {
-    "type": "container",
-    "options": {
-      "image": "challenge/cookie-monster:latest",
-      "ports": [
-        {
-          "container": 80,
-          "host": 8080
+    "type": "hosted",
+    "hosted": {
+        "container": {
+            "driver": "docker",
+            "image": "challenge/cookie-monster:latest",
+            "ports": [{
+                "port": 80,
+                "protocol": "tcp"
+            }],
+            "flagArg": "flag",
         }
-      ],
-      "environment": {
-        "FLAG": "{{flag}}"
-      }
     }
   },
   "solutions": [
-    {
-      "description": "Inspect and modify the session cookie",
-      "steps": [
-        "Open browser developer tools and inspect the cookies",
-        "Notice the 'role' cookie is set to 'user'",
-        "Change the 'role' cookie value to 'admin'",
-        "Refresh the page to access the admin panel",
-        "The flag is displayed in the admin panel"
-      ]
-    }
+    "Open browser developer tools and inspect the cookies",
+    "Notice the 'role' cookie is set to 'user'",
+    "Change the 'role' cookie value to 'admin'",
+    "Refresh the page to access the admin panel",
+    "The flag is displayed in the admin panel"
   ]
 }
 ```
@@ -144,12 +135,6 @@ This example shows a challenge pack containing multiple related web challenges:
     "cookie-manipulation/challenge.json",
     "directory-traversal/challenge.json"
   ],
-  "configuration": {
-    "deployment": {
-      "namespace": "web-fundamentals",
-      "cleanup": true
-    }
-  }
 }
 ```
 
