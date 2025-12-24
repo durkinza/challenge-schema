@@ -88,7 +88,7 @@ This example shows a web application challenge with container deployment:
     "name": "Example Author",
     "email": "author@example.com"
   },
-  "deaultFlag": {
+  "defaultFlag": {
     "regex": ["/(flag)?{?c00k13_m0nst3r}?/i"],
     "static": ["flag{c00k13_m0nst3r}"]
   },
