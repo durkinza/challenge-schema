@@ -2,30 +2,125 @@
 
 This section provides real-world examples of challenges created using the Challenge Bundle Schema.
 
-## Basic Challenge Examples
 
-### Caesar Cipher Challenge
+## Bundle Examples
 
-This is a simple cryptography challenge using a Caesar cipher:
+### Example 1: Simple Trivia Challenge
 
+The simplest bundle is just a `challenge.json` file:
+
+```
+my-trivia-challenge.zip
+└── challenge.json
+```
+
+**challenge.json:**
 ```json
 {
-    "$schema": "https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge.schema.json",
+  "name": "CTF Trivia Question",
+  "description": "Test your cybersecurity knowledge!",
+  "prompt": "What port does HTTPS use by default?",
+  "category": "trivia",
+  "points": 50,
+  "defaultFlag": {
+    "static": ["443", "flag{443}"]
+  },
+  "deployment": {
+    "type": "standard",
+    "standard": {
+      "attachments": []
+    }
+  },
+  "author": {
+    "name": "Your Name"
+  }
+}
+```
+
+### Example 2: Challenge with Static Files
+
+A crypto challenge that provides a cipher text file:
+
+```
+caesar-cipher.zip
+├── challenge.json
+└── cipher.txt
+```
+
+**challenge.json:**
+```json
+{
     "name": "Caesar Cipher",
-    "description": "A simple Caesar cipher challenge. The flag is encoded in the text!",
+    "description": "Decrypt this message!",
+    "category": "crypto",
     "points": 100,
-    "category":  "crypto",
     "defaultFlag": {
         "regex": ["/(flag)?{?caesar_salad}?/i"],
-        "static": ["flag{caesar_salad}", "caesar_salad"]
+        "static": ["flag{caesar_salad}"]
     },
+    "deployment": {
+        "type": "standard",
+        "standard": {
+            "attachments": [
+            {
+                "name": "Cipher Text",
+                "type": "text/plain",
+                "path": "./cipher.txt"
+            }
+            ]
+        }
+    },
+    "author": {
+      "name": "Julius Caesar",
+    },
+    "language": "english",
+    "solutions": [
+        "Open the cipher.txt file",
+        "Decrypt the text using a Caesar cipher with a shift of 13"
+    ]
+}
+```
+**cipher.txt:**
+```txt
+synt{pnrfne_fnynq}
+```
+
+### Example 3: Challenge with Build Script
+
+A challenge that generates unique content per player:
+
+```
+dynamic-cipher.zip
+├── challenge.json
+└── build.sh
+```
+
+**challenge.json:**
+```json
+{
+    "name": "Caesar Cipher",
+    "description": "A simple Caesar cipher challenge. The flag is hidden in the text.",
+    "points": 15,
+    "category": "Crypto",
     "customFlag": {
         "allowedCharacters": {
             "lowercase": true,
-            "uppercase": false,
+            "uppercase": true,
             "numbers": false,
             "specialCharacters": false
         },
+        "length": {
+            "max": 4000
+        }
+    },
+    "defaultFlag": {
+        "regex": [
+            "/(flag)?{?caesar_salad}?/i"
+        ],
+        "static": [
+            "flag{caesar_salad}",
+            "caesar_salad"
+        ]
     },
     "deployment": {
         "type": "standard",
@@ -47,15 +142,13 @@ This is a simple cryptography challenge using a Caesar cipher:
                 {
                     "name": "Cipher.txt",
                     "type": "text/plain",
-                    "key": "cipher.txt",
-                    "path": "cipher.txt"
+                    "key": "cipher.txt"
                 }
             ]
         }
     },
     "author": {
-        "name": "Your Name",
-        "email": "your.email@example.com"
+        "name": "Julius Caesar",
     },
     "language": "english",
     "solutions": [
@@ -63,34 +156,66 @@ This is a simple cryptography challenge using a Caesar cipher:
         "Decrypt the text using a Caesar cipher with a shift of 13"
     ]
 }
+
 ```
-If you've configured your IDE with the json schema, you can leave off the "$schema" field.
+**build.sh:**
+```bash
+#!/bin/bash
+# Use default flag if not provided
+if [ $# -eq 0 ]; then
+    FLAG="caesar_salad"
+else
+    FLAG="$1"
+fi
+# Apply Caesar cipher with shift of 13 (ROT13)
+cipher_text=$(echo "$FLAG" | tr 'a-zA-Z' 'n-za-mN-ZA-M')
+# Output to cipher.txt
+echo "$cipher_text" > cipher.txt
+```
 
-## 2. Add the build script to your challenge bundle
+### Example 4: Hosted Web Challenge
 
-I'll provide the build.sh file here
+A web application that runs as a container:
 
+```
+web-challenge.zip
+├── challenge.json
+├── Dockerfile
+└── src/
+    ├── app.php
+    ├── templates/
+    │   └── index.html
+    └── static/
+        └── style.css
+```
 
-
-
-### Web Challenge Example
-
-This example shows a web application challenge with container deployment:
-
+**challenge.json:**
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/durkinza/challenge-bundle-schema/main/challenge.schema.json",
   "name": "Cookie Monster",
-  "description": "This website has some poorly secured cookies. Can you find and exploit them?",
+  "description": "This website provides a simple cookie that can be updated to show the flag. This challenge tests your knowledge of browser cookies and how to manipulate them.",
   "difficulty": "medium",
   "category": "web",
   "author": {
     "name": "Example Author",
     "email": "author@example.com"
   },
+  "customFlag": {
+    "allowedCharacters": {
+      "lowercase": true,
+      "uppercase": true,
+      "numbers": true,
+      "specialCharacters": ["_", "{", "}"]
+    },
+    "length": {
+      "min": 10,
+      "max": 30
+    }
+  },
   "defaultFlag": {
-    "regex": ["/(flag)?{?c00k13_m0nst3r}?/i"],
-    "static": ["flag{c00k13_m0nst3r}"]
+    "regex": ["/(flag)?{?YummyC00k13s}?/i"],
+    "static": ["flag{YummyC00k13s}"]
   },
   "deployment": {
     "type": "hosted",
@@ -102,24 +227,68 @@ This example shows a web application challenge with container deployment:
                 "port": 80,
                 "protocol": "tcp"
             }],
-            "flagArg": "flag",
+            "flagArg": "FLAG",
         }
     }
   },
   "solutions": [
     "Open browser developer tools and inspect the cookies",
-    "Notice the 'role' cookie is set to 'user'",
-    "Change the 'role' cookie value to 'admin'",
-    "Refresh the page to access the admin panel",
-    "The flag is displayed in the admin panel"
+    "Notice the 'Red_Guy's_name' cookie is set to 'NameGoesHere'",
+    "Change the 'Red_Guy's_name' cookie value to 'Elmo' (Since Elmo is the Cookie monster's favorite red guy in the show Sesame Street)",
+    "Refresh the page to submit the cookie to the server",
+    "Retrieve the flag"
   ]
 }
 ```
+**Dockerfile:**
+```Dockerfile
+FROM php:8.0-apache
+WORKDIR /app
+COPY src/ .
+ENV FLAG="flag{YummyC00k13s}"
+EXPOSE 80
+CMD ["apache2-foreground"]
+```
+**src/app.php:**
+```php
+<?php
+$flag = getenv('FLAG') ?: 'flag{YummyC00k13s}';
+if(array_key_exists("Red_Guy's_name", $_COOKIE)&&preg_match('/([Ee])lmo+/', $_COOKIE["Red_Guy's_name"])){
+  $output=('<p>You got it! ' . htmlspecialchars($flag) . '</p>');
+}else{
+    $output = ("<p>He's my favorite Red guy</p>");
+    setcookie("Red_Guy's_name", 'NameGoesHere', time()+300);
+}
 
-## Challenge Pack Example
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cookie_monster</title>
+    </head>
+    <body>
+    <?php
+    echo($output);
+    ?>
+</body>
+</html>
+```
 
-This example shows a challenge pack containing multiple related web challenges:
+## Challenge Pack Examples
 
+### Example 1: Simple Challenge Pack
+This example shows a challenge pack containing a couple related web challenges:
+
+```
+web-challenge-pack.zip
+├── challenge-pack.json
+└── challenges/
+    ├── intro.zip
+    │   └── challenge.json
+    └── advanced.zip
+        └── challenge.json
+```
+**challenge-pack.json:**
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/durkinza/challenge-bundle-schema/main/challenge-pack.schema.json",
@@ -130,14 +299,19 @@ This example shows a challenge pack containing multiple related web challenges:
     "email": "author@example.com"
   },
   "challenges": [
-    "xss/challenge.json",
-    "sql-injection/challenge.json",
-    "cookie-manipulation/challenge.json",
-    "directory-traversal/challenge.json"
-  ],
+    {
+      "id": "intro-challenge",
+      "path": "./challenges/intro",
+      "category": "web",
+      "points": 100
+    },
+    {
+      "id": "advanced-challenge",
+      "path": "./challenges/advanced",
+      "category": "web",
+      "points": 250,
+      "prerequisites": ["intro-challenge"]
+    }
+  ]
 }
 ```
-
-## More Examples
-
-For more examples, check out the [GitHub repository](https://github.com/durkinza/challenge-bundle-schema/tree/main/examples).
