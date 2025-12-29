@@ -16,7 +16,12 @@
         "pymdownx",
         "linenums",
         "inlinehilite",
-        "materialx"
+        "materialx",
+        "synt{pnrfne_fnynq}",
+        "synt",
+        "pnrfne",
+        "fnynq",
+        "preg_match"
     ],
     "flagWords": [],
     "ignorePaths": [

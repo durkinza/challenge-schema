@@ -34,7 +34,7 @@ No. Only include `customFlag` if your challenge supports generating unique flags
 ### Build script vs build container - which should I use?
 
 the build script is simpler and faster for basic setups, but it runs directly on the host system, which may lead to dependency conflicts and introduces security issues.
-Some Challenge Forges may execute the script in a container to mitigate this, so your script should not have many dependences.
+Some Challenge Forges may execute the script in a container to mitigate this, so your script should not have many dependencies.
 The build container provides better isolation and consistency, as it runs with the environment the challenge designer expects. 
 When in doubt, use the container flow for better consistency.
 
