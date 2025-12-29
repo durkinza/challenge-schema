@@ -7,9 +7,12 @@ The CTF Challenge Bundle and CTF Challenge Pack specifications are standardized 
 ## Documentation Contents
 
 - [Getting Started](getting-started.md) - Quick start guide for using the schemas
+- [Bundle Structure](bundle-structure.md) - How to organize your challenge bundle files
 - [Challenge Bundle Schema Reference](ChallengeSchema/index.md) - Detailed schema documentation
-- [Challenge Pack Schema Reference](ChallengePackSchema/index.md) - Detailed schema documentation
+- [Challenge Pack Schema Reference](ChallengePackSchema/index.md) - Detailed schema documentation  
 - [Examples](examples/index.md) - Real-world examples of schema usage
+- [FAQ](FAQ.md) - Frequently asked questions
+- [Terminology](terminology/index.md) - Glossary of terms
 
 
 ## What is a Challenge Bundle?
@@ -27,7 +30,7 @@ The grouping is typically a zip of the files together into a portable pack of ch
 
 ## What is the Challenge Pack Schema?
 
-The Challenge Pack Schema is a JSON specification that defines a standardized format for a grouping of [challenge bundles](#what-is-a-challenge-bundle). It enables event coordinators and challenge authors to define a grouping of challenges that work well together.
+The Challenge Pack Schema is a JSON specification that defines a standardized format for a grouping of [challenge bundles](#what-is-a-challenge-bundle). It enables event coordinators and challenge authors to define a grouping of challenges that work well together, including prerequisites and relationships between challenges.
 
 
 ## Provided Tools
@@ -44,6 +47,74 @@ For  [challenge forge](terminology/index.md#challenge-forge) authors, a npm modu
 ## Key Features of this Project
 
 - **Standardized Format**: Consistent structure for defining challenges, their flags, and their deployments.
-- **Deployment Options**: Support for various deployment configurations.
-- **Validation**: Tools for validating the challenge bundle and challenge pack schemas.
-- **Challenge Packs**: A structure for multiple challenge deployments on top of individual challenge bundles.
+- **Flexible Deployment**: Support for both file-based (standard) and hosted (container) deployments.
+- **Dynamic Flags**: Generate unique flags per player or team with customizable character sets.
+- **Build Automation**: Define build processes using scripts or containers.
+- **Challenge Relationships**: Create progressive learning paths with prerequisites in challenge packs.
+- **Validation Tools**: CLI and npm package for validating bundles and packs.
+- **IDE Support**: JSON schema for autocompletion in modern IDEs.
+
+## Quick Start
+
+1. **Install the validation tool** (optional):
+   ```bash
+   npm install -g @durkinza/challenge-bundle-schema
+   ```
+
+2. **Create a simple challenge.json**:
+   ```json
+   {
+     "name": "My First Challenge",
+     "description": "A simple CTF challenge",
+     "category": "misc",
+     "points": 100,
+     "defaultFlag": {
+       "static": ["flag{hello_world}"]
+     },
+     "deployment": {
+       "type": "standard",
+       "standard": {
+         "attachments": []
+       }
+     }
+   }
+   ```
+
+3. **Validate it**:
+   ```bash
+   bunx @durkinza/challenge-bundle-schema validate challenge.json
+   ```
+
+4. **Bundle it**:
+   ```bash
+   zip my-challenge.zip challenge.json
+   ```
+
+For more detailed instructions, see the [Getting Started](getting-started.md) guide.
+
+## Use Cases
+
+### Challenge Designers
+- Create portable, self-contained challenge bundles
+- Define how challenges should be built and deployed
+- Support both static and dynamic flag generation
+- Provide hints and solutions for players
+
+### Event Coordinators
+- Import standardized challenge bundles from various sources
+- Create challenge packs with prerequisites and progression
+- Validate challenges before deployment
+- Customize point values and categories for your event
+
+### Platform Developers (Challenge Forges)
+- Parse and validate challenge bundles automatically
+- Support standardized deployment configurations
+- Generate unique flags per team/player
+- Build challenge files dynamically
+
+## Getting Help
+
+- **Documentation**: Browse the sections above
+- **Examples**: Check out [real-world examples](examples/index.md)
+- **FAQ**: Common questions answered in the [FAQ](FAQ.md)
+- **Issues**: Report problems on [GitHub](https://github.com/durkinza/challenge-bundle-schema/issues)

@@ -39,15 +39,15 @@ Often these are either plugins for a CTF platform, or the CTF platform itself it
 
 ## Positions
 
-# Challenge Designer
+### Challenge Designer
 The challenge designer is the person that develops the challenge and builds the challenge.json file to bundle the challenge.
 
-# Challenge Publisher
+### Challenge Publisher
 The challenge publisher is the person that publishes the challenge bundle for event coordinators to use. This is often the same person as the challenge designer.
 
-# Event Coordinator
+### Event Coordinator
 The Event Coordinator is the person(s) that setup a CTF event and handles the import and deployment of challenges.
 Event Coordinators will be dependent on the Challenge Designer and Challenge Publisher to fix issues in the challenge. 
 
-# Player
+### Player
 The Player is the participant of a CTF event that is attempting to solve the challenge. The Player will often work closely with the Event Coordinator to work through the challenge.

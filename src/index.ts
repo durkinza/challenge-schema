@@ -1,5 +1,7 @@
 export * from "./challenge-pack-schema";
 export * from "./challenge-schema";
+import { z } from "zod";
+
 import { ChallengePack } from "./challenge-pack-schema";
 import { Challenge } from "./challenge-schema";
 
@@ -19,3 +21,5 @@ export const validateChallengePack = (data: unknown) => {
   }
   return result.data;
 };
+export type ChallengeBundleType = z.infer<typeof Challenge>;
+export type ChallengePackType = z.infer<typeof ChallengePack>;

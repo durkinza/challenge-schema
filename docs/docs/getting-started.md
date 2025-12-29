@@ -88,18 +88,18 @@ This will help with autocompletion and validation of challenge.json files.
 This will help with autocompletion and validation of challenge-pack.json files.
 
 similarly, a challenge.yml and challenge-pack.yml file can be setup with 
-```yml
-# Add $schema to challenge.json file
+```yaml
+# Add $schema to challenge.yml file
 $schema: https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge.schema.json
-# Rest of Json file.
+# Rest of Yaml file.
 ```
 This will help with autocompletion and validation of challenge.json files.
 
 
-```yml
-# Add $schema to challenge-pack.json file
+```yaml
+# Add $schema to challenge-pack.yml file
 $schema: https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge-pack.schema.json
-# Rest of Json file.
+# Rest of Yaml file.
 ```
 <br/>
 
@@ -130,7 +130,7 @@ An example challenge.json can be created with the following structure:
     "name": "Your Name",
     "email": "your.email@example.com"
   },
-  "flag": [
+  "defaultFlag": [
     {
         "type": "string",
         "value": "flag{my_flag_value}"
