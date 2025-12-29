@@ -11,9 +11,9 @@ Hosted Deployments are long-lived setups, where the challenge is expected to be 
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `type` | string | The name of the challenge |
-| `hosted` | object | details for a hosted challenge (not available if "hosted" is provided) |
-| `standard` | object | details for a standard challenge (not available if "hosted" is provided) |
+| `type` | string | Deployment type; must be either `"standard"` or `"hosted"` |
+| `hosted` | object | details for a hosted challenge (not available if type is `"standard"`) |
+| `standard` | object | details for a standard challenge (not available if type is `"hosted"`) |
 
 
 # Standard Deployment
