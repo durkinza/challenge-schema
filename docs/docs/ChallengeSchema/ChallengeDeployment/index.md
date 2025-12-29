@@ -4,7 +4,7 @@ The `deployment` field defines how the challenge should be deployed or setup to 
 
 A challenge can be deployed in either 'standard' or 'hosted', but not both.
 
-Standard Deployments are short-lived setups, where the challenge content is generated before a players starts and does not require re deployment.
+Standard Deployments are short-lived setups, where the challenge content is generated before a player starts and does not require re deployment.
 Hosted Deployments are long-lived setups, where the challenge is expected to be running continuously and often allows the players to interact with the deployed service.
 
 ## Required Fields
@@ -18,12 +18,10 @@ Hosted Deployments are long-lived setups, where the challenge is expected to be 
 
 # Standard Deployment
 
-Standard deployments would be the best option for challenges that can be setup once and saved to be provided to the player later. 
+Standard deployments would be the best option for challenges that can be setup once and saved to be provided to the player later, or for challenges that don't require any build process at all.
 An example would be cryptographic challenges, where a flag could be encoded and the resulting cipher text is provided to the player. 
 
 Standard deployments still accept a container build type, which allows the challenge designer to provide the build environment with all required dependencies for the build script.
-
-Regardless if a script or container is used, the standard deployment expects a file 
 
 Supported deployment types:
 - `container` - Docker container deployment

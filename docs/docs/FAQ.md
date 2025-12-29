@@ -44,7 +44,7 @@ See [Standard Deployment](ChallengeSchema/ChallengeDeployment/standard-deploymen
 
 ### Should I use external URLs for attachments?
 
-Avoid external URLs when possible. Bundles should be self-contained to ensure reliability and Resilience. However, external URLs may be acceptable for non-essential resources such as references, or large media files that are not critical to challenge functionality.
+Avoid external URLs when possible. Bundles should be self-contained to ensure reliability and resilience. However, external URLs may be acceptable for non-essential resources such as references, or large media files that are not critical to challenge functionality.
 
 See [Attachments](ChallengeSchema/challenge-attachments.md) for more information.
 

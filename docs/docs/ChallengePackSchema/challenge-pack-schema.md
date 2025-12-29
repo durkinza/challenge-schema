@@ -111,7 +111,7 @@ The `prerequisites` field creates dependencies between challenges:
 }
 ```
 
-How Prerequisites Work
+### How Prerequisites Work
 
 1. Challenges without prerequisites are available immediately
 2. Challenges with prerequisites are locked until all prerequisite challenges are solved

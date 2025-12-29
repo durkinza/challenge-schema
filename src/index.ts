@@ -21,5 +21,5 @@ export const validateChallengePack = (data: unknown) => {
   }
   return result.data;
 };
-export type ChallengeBundleType = z.infer<typeof Challenge>;
+export type ChallengeType = z.infer<typeof Challenge>;
 export type ChallengePackType = z.infer<typeof ChallengePack>;

@@ -71,7 +71,7 @@ caesar-cipher.zip
         }
     },
     "author": {
-    "name": "Julius Caesar"
+      "name": "Julius Caesar",
     },
     "language": "english",
     "solutions": [
@@ -227,7 +227,7 @@ web-challenge.zip
                 "port": 80,
                 "protocol": "tcp"
             }],
-            "flagArg": "flag",
+            "flagArg": "FLAG",
         }
     }
   },
@@ -252,7 +252,7 @@ CMD ["apache2-foreground"]
 **src/app.php:**
 ```php
 <?php
-$flag = getenv('flag') ?: 'flag{YummyC00k13s}';
+$flag = getenv('FLAG') ?: 'flag{YummyC00k13s}';
 if(array_key_exists("Red_Guy's_name", $_COOKIE)&&preg_match('/([Ee])lmo+/', $_COOKIE["Red_Guy's_name"])){
   $output=('<p>You got it! ' . htmlspecialchars($flag) . '</p>');
 }else{
