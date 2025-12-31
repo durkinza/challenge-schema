@@ -1,7 +1,8 @@
 {
     "$schema": "../../../challenge.schema.json",
     "name": "Caesar Cipher",
-    "description": "A simple Caesar cipher challenge. The flag is hidden in the text.",
+    "prompt": "Decrypt the given Caesar cipher to find the hidden flag.",
+    "description": "A simple Caesar cipher challenge.\n This challenge uses a shift cipher to obscure the flag.\n\nCaesar ciphers use a rotation of the alphabet and then replace each character in the payload with the corresponding cipher text.\nThe offset of the rotation acts as the decryption key, as there are 25 possible rotations.\nA rotate with the key of 1 would look like\n```\nA B C D E F G H I J K L M N O P Q R S T U V W X Y Z\nB C D E F G H I J K L M N O P Q R S T U V W X Y Z A\n```",
     "points": 0,
     "category": "web",
     "customFlag": {
