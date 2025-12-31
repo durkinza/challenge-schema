@@ -24,7 +24,7 @@ export const Challenge = z
       .string()
       .meta({
         description:
-          "The prompt presented to show the player to introduce the challenge.",
+          "The prompt presented to the player to introduce the challenge.",
       })
       .optional(),
     deployment: challengeDeployment,
