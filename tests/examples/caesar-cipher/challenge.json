@@ -31,13 +31,21 @@
                 "buildType": "script",
                 "script": {
                     "path": "build.sh",
-                    "flagArg": "flag",
                     "outputs": [
                         {
                             "key": "cipher.txt",
                             "path": "cipher.txt"
                         }
-                    ]
+                    ],
+                    "parameters": {
+                        "arguments": [
+                            {
+                                "key": "--flag",
+                                "description": "The flag to be used in the challenge"
+                            }
+                        ],
+                        "flagArgumentName": "--flag"
+                    }
                 }
             },
             "attachments": [
