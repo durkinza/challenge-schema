@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { ArgumentsEnvironmentVariablesAndFlags } from "./argsAndEnvs";
+import { ArgumentAndEnvironmentVariables } from "./argsAndEnvs";
 import { buildOutputs } from "./buildOutputs";
 
 export const containerOptions = z.object({
@@ -82,7 +82,10 @@ export const containerOptions = z.object({
     .meta({
       description: "The ports to expose for the challenge",
     }),
-  parameters: ArgumentsEnvironmentVariablesAndFlags,
+  parameters: ArgumentAndEnvironmentVariables.optional().meta({
+    description:
+      "The arguments and environment variables that can be provided to the challenge container at runtime.",
+  }),
   outputs: buildOutputs
     .optional()
     .meta({ description: "The attachment outputs from the container." }),

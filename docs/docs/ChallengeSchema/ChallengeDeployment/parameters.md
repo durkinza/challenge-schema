@@ -152,25 +152,30 @@ Environment variables are defined similarly to arguments, but without prefixes.
 
 ## Flag Parameter References
 
-When a challenge uses dynamic flags (custom flags), you need to specify where the flag value should be injected. This is done using one of two fields: `flagArgumentName` or `flagEnvironmentVariableName`.
+When a challenge uses dynamic flags (custom flags), you need to specify where the flag value should be injected. This is done using one or both of these fields: `flagArgumentName` or `flagEnvironmentVariableName`.
 
-Only one of these fields should be used to avoid ambiguity.
+You can provide:
+- Only `flagArgumentName` - for script or container argument-based flag injection
+- Only `flagEnvironmentVariableName` - for container environment variable-based flag injection  
+- Both fields - allows the same flag to be passed both ways, providing maximum compatibility across different deployment methods
 
 ### `flagArgumentName`
 
 References an argument from the `arguments` array that should receive the dynamic flag value.
 
-The value of `flagArgumentName` should match the `key` of one of the defined arguments.
+The value of `flagArgumentName` must match the `key` of one of the defined arguments.
 
 ```json
 {
-  "arguments": [
-    {
-      "key": "--flag",
-      "description": "The dynamic flag value"
-    }
-  ],
-  "flagArgumentName": "--flag"  // Must match the key exactly, including --
+  "parameters": {
+    "arguments": [
+      {
+        "key": "--flag",
+        "description": "The dynamic flag value"
+      }
+    ],
+    "flagArgumentName": "--flag"  // Must match the key exactly, including --
+  }
 }
 ```
 
@@ -178,16 +183,45 @@ The value of `flagArgumentName` should match the `key` of one of the defined arg
 
 References an environment variable from the `environmentVariables` array that should receive the dynamic flag value.
 
-The value of `flagEnvironmentVariableName` should match the `key` of one of the defined environment variables.
+The value of `flagEnvironmentVariableName` must match the `key` of one of the defined environment variables.
 
 ```json
 {
-  "environmentVariables": [
-    {
-      "key": "FLAG",
-      "description": "The dynamic flag value"
-    }
-  ],
-  "flagEnvironmentVariableName": "FLAG"  // Must match the key exactly
+  "parameters": {
+    "environmentVariables": [
+      {
+        "key": "FLAG",
+        "description": "The dynamic flag value"
+      }
+    ],
+    "flagEnvironmentVariableName": "FLAG"  // Must match the key exactly
+  }
 }
 ```
+
+### Using Both Flag Methods
+
+You can provide both `flagArgumentName` and `flagEnvironmentVariableName` simultaneously. This is useful for challenges that may be deployed using different methods:
+
+```json
+{
+  "parameters": {
+    "arguments": [
+      {
+        "key": "--flag",
+        "description": "The dynamic flag value"
+      }
+    ],
+    "environmentVariables": [
+      {
+        "key": "FLAG",
+        "description": "The dynamic flag value"
+      }
+    ],
+    "flagArgumentName": "--flag",
+    "flagEnvironmentVariableName": "FLAG"
+  }
+}
+```
+
+In this case, a Challenge Forge can provide the same flag value to both the argument and environment variable, allowing maximum flexibility in how the challenge is deployed.

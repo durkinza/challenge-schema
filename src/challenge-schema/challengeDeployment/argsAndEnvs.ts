@@ -1,118 +1,113 @@
 import { z } from "zod";
 
-export const ArgumentAndEnvironmentVariables = z.object({
-  arguments: z
-    .array(
-      z.object({
-        key: z.string().meta({
-          description: "The argument name that is accepted.",
-          examples: ["--playerName", "--teamName", "--flag"],
+export const ArgumentAndEnvironmentVariables = z
+  .object({
+    arguments: z
+      .array(
+        z.object({
+          key: z.string().meta({
+            description: "The argument name that is accepted.",
+            examples: ["--playerName", "--teamName", "--flag"],
+          }),
+          description: z.string().meta({
+            description:
+              "Description of the argument and the type of value it expects.",
+            examples: [
+              "The Player Name argument customizes the challenge welcome message for the player.",
+            ],
+          }),
         }),
-        description: z.string().meta({
-          description:
-            "Description of the argument and the type of value it expects.",
-          examples: [
-            "The Player Name argument customizes the challenge welcome message for the player.",
-          ],
-        }),
+      )
+      .optional()
+      .meta({
+        description: "The arguments that are accepted.",
+        examples: [
+          {
+            key: "--playerName",
+            description:
+              "The Player Name argument customizes the challenge welcome message for the player.",
+          },
+        ],
       }),
-    )
-    .optional()
-    .meta({
-      description: "The arguments that are accepted.",
-      examples: [
-        {
-          key: "--playerName",
-          description:
-            "The Player Name argument customizes the challenge welcome message for the player.",
-        },
-      ],
-    }),
-  environmentVariables: z
-    .array(
-      z.object({
-        key: z.string().meta({
-          description: "The environment variable name that is accepted.",
-          examples: ["OPENAPI_KEY"],
+    environmentVariables: z
+      .array(
+        z.object({
+          key: z.string().meta({
+            description: "The environment variable name that is accepted.",
+            examples: ["OPENAPI_KEY"],
+          }),
+          description: z.string().meta({
+            description:
+              "Description of the environment variable and the type of value it expects.",
+            examples: [
+              "Accepts the API secret key for accessing the OpenAPI service.",
+            ],
+          }),
         }),
-        description: z.string().meta({
-          description:
-            "Description of the environment variable and the type of value it expects.",
-          examples: [
-            "Accepts the API secret key for accessing the OpenAPI service.",
-          ],
-        }),
+      )
+      .meta({
+        description: "The environment variables that are accepted",
+        examples: [
+          {
+            key: "OPENAPI_KEY",
+            description:
+              "Accepts the API secret key for accessing the OpenAPI service.",
+          },
+        ],
+      })
+      .optional(),
+    flagArgumentName: z
+      .string()
+      .optional()
+      .meta({
+        description: "The argument to use for the dynamic flags.",
+        examples: ["--flag", "-f"],
       }),
-    )
-    .meta({
-      description: "The environment variables that are accepted",
-      examples: [
-        {
-          key: "OPENAPI_KEY",
-          description:
-            "Accepts the API secret key for accessing the OpenAPI service.",
-        },
-      ],
-    })
-    .optional(),
-});
-
-const ArgsAndEnvAndFlagArg = ArgumentAndEnvironmentVariables.extend({
-  flagArgumentName: z
-    .string()
-    .optional()
-    .meta({
-      description: "The argument to use for the dynamic flags.",
-      examples: ["--flag", "-f"],
-    }),
-}).refine(
-  (data) => {
-    // If flagArgumentName is provided, it must exist in arguments
-    if (data.flagArgumentName) {
-      if (data.arguments) {
-        return data.arguments.some((arg) => arg.key === data.flagArgumentName);
-      } else {
-        return false;
+    flagEnvironmentVariableName: z
+      .string()
+      .optional()
+      .meta({
+        description: "The environment variable to use for the dynamic flags.",
+        examples: ["FLAG", "DYNAMIC_FLAG"],
+      }),
+  })
+  .refine(
+    (data) => {
+      // If flagArgumentName is provided, it must exist in arguments
+      if (data.flagArgumentName) {
+        if (
+          !data.arguments ||
+          !data.arguments.some((arg) => arg.key === data.flagArgumentName)
+        ) {
+          return false;
+        }
       }
-    }
-    return true;
-  },
-  {
-    message: "Flag argument name must exist in the arguments list",
-    path: ["flagArgumentName"],
-  },
-);
-
-const ArgsAndEnvAndFlagEnv = ArgumentAndEnvironmentVariables.extend({
-  flagEnvironmentVariableName: z
-    .string()
-    .optional()
-    .meta({
-      description: "The environment to use for the dynamic flags.",
-      examples: ["FLAG", "DYNAMIC_FLAG"],
-    }),
-}).refine(
-  (data) => {
-    // If flagEnvironmentVariableName is provided, it must exist in environmentVariables
-    if (data.flagEnvironmentVariableName) {
-      if (data.environmentVariables) {
-        return data.environmentVariables.some(
-          (env) => env.key === data.flagEnvironmentVariableName,
-        );
-      } else {
-        return false;
+      return true;
+    },
+    {
+      message:
+        "flagArgumentName must reference an existing argument in the arguments list",
+      path: ["flagArgumentName"],
+    },
+  )
+  .refine(
+    (data) => {
+      // If flagEnvironmentVariableName is provided, it must exist in environmentVariables
+      if (data.flagEnvironmentVariableName) {
+        if (
+          !data.environmentVariables ||
+          !data.environmentVariables.some(
+            (env) => env.key === data.flagEnvironmentVariableName,
+          )
+        ) {
+          return false;
+        }
       }
-    }
-    return true;
-  },
-  {
-    message:
-      "Flag environment variable name must exist in the environment variables list",
-    path: ["flagEnvironmentVariableName"],
-  },
-);
-
-export const ArgumentsEnvironmentVariablesAndFlags = z.union([
-  ArgsAndEnvAndFlagArg,
-  ArgsAndEnvAndFlagEnv,
-]);
+      return true;
+    },
+    {
+      message:
+        "flagEnvironmentVariableName must reference an existing environment variable in the environmentVariables list",
+      path: ["flagEnvironmentVariableName"],
+    },
+  );

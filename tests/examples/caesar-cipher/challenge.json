@@ -44,6 +44,10 @@
                                 "description": "The flag to be used in the challenge"
                             }
                         ],
+                        "environmentVariables": [{
+                            "key": "ROTATION_KEY",
+                            "description": "Accepts the number of rotations to use in the caesar cipher, Defaults to 13."
+                        }],
                         "flagArgumentName": "--flag"
                     }
                 }
