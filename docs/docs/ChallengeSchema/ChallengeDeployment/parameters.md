@@ -16,7 +16,7 @@ These parameters allow challenges to be customized per-instance, and they're esp
 
 ## Defining Parameters
 
-Arguments and Environment Variables are defined as an array of objects, where each object describes an argument that the deployment accepts.
+Arguments and Environment Variables are defined as an array of objects, where each object describes a parameter (argument or environment variable) that the deployment accepts.
 
 ### Structure
 
