@@ -93,7 +93,7 @@ const ArgsAndEnvAndFlagEnv = ArgumentAndEnvironmentVariables.extend({
     }),
 }).refine(
   (data) => {
-    // If flagArgumentName is provided, it must exist in arguments
+    // If flagEnvironmentVariableName is provided, it must exist in environmentVariables
     if (data.flagEnvironmentVariableName) {
       if (data.environmentVariables) {
         return data.environmentVariables.some(
