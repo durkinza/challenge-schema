@@ -68,10 +68,14 @@ const ArgsAndEnvAndFlagArg = ArgumentAndEnvironmentVariables.extend({
 }).refine(
   (data) => {
     // If flagArgumentName is provided, it must exist in arguments
-    if (data.flagArgumentName && data.arguments) {
-      return data.arguments.some((arg) => arg.key === data.flagArgumentName);
+    if (data.flagArgumentName) {
+      if (data.arguments) {
+        return data.arguments.some((arg) => arg.key === data.flagArgumentName);
+      } else {
+        return false;
+      }
     }
-    return false;
+    return true;
   },
   {
     message: "Flag argument name must exist in the arguments list",
@@ -90,12 +94,16 @@ const ArgsAndEnvAndFlagEnv = ArgumentAndEnvironmentVariables.extend({
 }).refine(
   (data) => {
     // If flagArgumentName is provided, it must exist in arguments
-    if (data.flagEnvironmentVariableName && data.environmentVariables) {
-      return data.environmentVariables.some(
-        (env) => env.key === data.flagEnvironmentVariableName,
-      );
+    if (data.flagEnvironmentVariableName) {
+      if (data.environmentVariables) {
+        return data.environmentVariables.some(
+          (env) => env.key === data.flagEnvironmentVariableName,
+        );
+      } else {
+        return false;
+      }
     }
-    return false;
+    return true;
   },
   {
     message:
