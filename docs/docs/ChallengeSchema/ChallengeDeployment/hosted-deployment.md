@@ -39,7 +39,15 @@ Hosted deployments would be the best option for challenges that are long-lived.
                         "protocol": "tcp"
                     }
                 ],
-                "flagArg": "flag",
+                "parameters": {
+                    "arguments": [
+                        {
+                            "key": "--flag",
+                            "description": "The flag value for this challenge instance"
+                        }
+                    ],
+                    "flagArgumentName": "--flag"
+                },
                 "output": [
                     {
                         "key": "user_creds",

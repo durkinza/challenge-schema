@@ -129,7 +129,15 @@ dynamic-cipher.zip
                 "buildType": "script",
                 "script": {
                     "path": "build.sh",
-                    "flagArg": "flag",
+                    "parameters": {
+                        "arguments": [
+                            {
+                                "key": "--flag",
+                                "description": "The flag value to encode in the cipher"
+                            }
+                        ],
+                        "flagArgumentName": "--flag"
+                    },
                     "outputs": [
                         {
                             "key": "cipher.txt",
@@ -227,7 +235,15 @@ web-challenge.zip
                 "port": 80,
                 "protocol": "tcp"
             }],
-            "flagArg": "FLAG",
+            "parameters": {
+                "environmentVariables": [
+                    {
+                        "key": "FLAG",
+                        "description": "The flag value to be displayed when the cookie is set correctly"
+                    }
+                ],
+                "flagEnvironmentVariableName": "FLAG"
+            }
         }
     }
   },

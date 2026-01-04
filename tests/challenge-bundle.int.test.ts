@@ -16,7 +16,7 @@ const inValidChallenges = [
     //'./bad-examples/invalid-deployment/challenge.json',
 ];
 
-describe('Challenge Bundle Schema Validation', () => {
+describe('Challenge Schema Validation', () => {
     const loadChallengeFile = (filePath: string) => {
         const fullPath = path.resolve(__dirname, filePath);
         const fileContents = fs.readFileSync(fullPath, 'utf-8');

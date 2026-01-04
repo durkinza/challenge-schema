@@ -37,7 +37,15 @@ Standard Deployment example using script
                 "buildType": "script",
                 "script": {
                     "path": "./run.py",
-                    "flagArg": "flag",
+                    "parameters": {
+                        "arguments": [
+                            {
+                                "key": "--flag",
+                                "description": "The flag value to use in the challenge"
+                            }
+                        ],
+                        "flagArgumentName": "--flag"
+                    },
                     "outputs": "challenge.txt"
                 }
             },
@@ -64,7 +72,15 @@ Standard Deployment example using script
                 "container": {
                     "driver": "docker",
                     "image": "neverlanctf/zip-builder:latest",
-                    "flagArg": "flag",
+                    "parameters": {
+                        "arguments": [
+                            {
+                                "key": "--flag",
+                                "description": "The flag value to include in the challenge"
+                            }
+                        ],
+                        "flagArgumentName": "--flag"
+                    }
                 }
             },
             "attachments": [
