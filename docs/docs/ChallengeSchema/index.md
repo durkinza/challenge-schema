@@ -6,7 +6,7 @@ The Challenge Schema defines the structure of individual challenges.
 
 ```json
 {
-    "$schema": "https://raw.githubusercontent.com/durkinza/challenge-bundle-schema/main/challenge.schema.json",
+    "$schema": "https://raw.githubusercontent.com/durkinza/challenge-schema/main/challenge.schema.json",
     "name": "Challenge Name",
     "description": "Challenge description",
     "difficulty": "medium",

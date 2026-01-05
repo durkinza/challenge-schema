@@ -19,7 +19,7 @@ The CTF Challenge Bundle and CTF Challenge Pack specifications are standardized 
 
 
 ## What is a Challenge Bundle?
-A Challenge Bundle is a grouping of a `challenge.json` file that follows the [challenge bundle Schema](#what-is-the-challenge-bundle-schema) and the necessary source files for a challenge. 
+A Challenge Bundle is a grouping of a `challenge.json` file that follows the [challenge bundle Schema](#what-is-the-challenge-schema) and the necessary source files for a challenge. 
 The grouping is typically a zip of the files together into a portable bundle.
 
 ## What is the Challenge Bundle Schema?
@@ -61,7 +61,7 @@ For  [challenge forge](terminology/index.md#challenge-forge) authors, a npm modu
 
 1. **Install the validation tool** (optional):
    ```bash
-   npm install -g @durkinza/challenge-bundle-schema
+   npm install -g @durkinza/challenge-schema
    ```
 
 2. **Create a simple challenge.json**:
@@ -85,7 +85,7 @@ For  [challenge forge](terminology/index.md#challenge-forge) authors, a npm modu
 
 3. **Validate it**:
    ```bash
-   bunx @durkinza/challenge-bundle-schema validate challenge.json
+   bunx @durkinza/challenge-schema validate challenge.json
    ```
 
 4. **Bundle it**:
@@ -120,4 +120,4 @@ For more detailed instructions, see the [Getting Started](getting-started.md) gu
 - **Documentation**: Browse the sections above
 - **Examples**: Check out [real-world examples](examples/index.md)
 - **FAQ**: Common questions answered in the [FAQ](FAQ.md)
-- **Issues**: Report problems on [GitHub](https://github.com/durkinza/challenge-bundle-schema/issues)
+- **Issues**: Report problems on [GitHub](https://github.com/durkinza/challenge-schema/issues)
