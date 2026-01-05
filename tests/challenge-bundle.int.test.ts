@@ -10,13 +10,15 @@ const validChallenges = [
 ];
 const inValidChallenges = [
     './bad-examples/empty/challenge.json',
-    './bad-examples/missing-flag-options/challenge.json',
+    './bad-examples/missing-flag-options/bad-default-flag-type.json',
     './bad-examples/duplicate-hint-ids/challenge.json',
+    './bad-examples/missing-flag-options/missing-flag-arg.json',
+    './bad-examples/missing-flag-options/missing-flag-env.json',
     //'./bad-examples/invalid-flag/challenge.json',
     //'./bad-examples/invalid-deployment/challenge.json',
 ];
 
-describe('Challenge Bundle Schema Validation', () => {
+describe('Challenge Schema Validation', () => {
     const loadChallengeFile = (filePath: string) => {
         const fullPath = path.resolve(__dirname, filePath);
         const fileContents = fs.readFileSync(fullPath, 'utf-8');
@@ -84,6 +86,18 @@ describe('Challenge Bundle Schema Validation', () => {
         });
         it('should identify duplicate hint Ids as a validation error', () => {
             const challenge = loadChallengeFile(inValidChallenges[2]);
+            expect(() => {
+                validateChallengeBundle(challenge);
+            }).toThrowError();
+        });
+        it('should identify missing argument match for flagArgumentName', () => {
+            const challenge = loadChallengeFile(inValidChallenges[3]);
+            expect(() => {
+                validateChallengeBundle(challenge);
+            }).toThrowError();
+        });
+        it('should identify missing environment variable match for flagEnvironmentVariableName', () => {
+            const challenge = loadChallengeFile(inValidChallenges[4]);
             expect(() => {
                 validateChallengeBundle(challenge);
             }).toThrowError();

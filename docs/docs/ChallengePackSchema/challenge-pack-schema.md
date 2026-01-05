@@ -6,7 +6,7 @@ The Challenge Pack Schema defines a collection of related challenges. It allows 
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/durkinza/challenge-bundle-schema/main/challenge-pack.schema.json",
+  "$schema": "https://raw.githubusercontent.com/durkinza/challenge-schema/main/challenge-pack.schema.json",
   "challenges": [
     {
       "id": "intro-challenge",

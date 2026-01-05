@@ -1,0 +1,33 @@
+{
+    "$schema": "../../../challenge.schema.json",
+    "name": "Cookie-Monster",
+    "description": "There's trouble on Sesame Street! The Cookie Monster needs your help to find his cookies!",
+    "points": 100,
+    "category": "Forensics",
+    "defaultFlag": {
+        "static": ["flag{C00kies_4r3_the_b3st}"],
+        "regex": ["/(flag)?{?C00kies_4r3_the_b3st}?/i"]
+    },
+    "customFlag": {
+        "allowedCharacters": {
+        }
+    },
+    "deployment": {
+        "type": "hosted",
+        "hosted": {
+            "container": {
+                "image": "neverlanctf/cookie-monster:latest",
+                "driver": "docker",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "http"
+                    }
+                ],
+                "parameters": {
+                    "flagArgumentName": "COOKIE_FLAG"
+                }
+            }
+        }
+    }
+}

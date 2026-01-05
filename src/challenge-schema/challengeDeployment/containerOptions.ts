@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+import { ArgumentAndEnvironmentVariables } from "./argsAndEnvs";
 import { buildOutputs } from "./buildOutputs";
 
 export const containerOptions = z.object({
@@ -11,29 +12,57 @@ export const containerOptions = z.object({
     .any()
     .optional()
     .meta({ description: "The tar file containing the challenge image" }),
-  imageDigest: z.string().optional().meta({
-    description:
-      "The digest of the image to use for the challenge, e.g. sha256:1234567890abcdef",
-  }),
+  imageDigest: z
+    .string()
+    .optional()
+    .meta({
+      description: "The digest of the image to use for the challenge.",
+      examples: [
+        "sha256:1e7a98fb738c261b2285443fa19194ff6318104564049b32832464f5f238d1f9",
+      ],
+    }),
   driver: z.string().meta({
-    description:
-      "The hosting driver to use for the challenge, e.g. 'docker', 'podman', 'containerd', 'vmware', 'kvm', 'lxc', 'kubernetes'",
+    description: "The hosting driver to use for the challenge.",
+    examples: [
+      "docker",
+      "podman",
+      "containerd",
+      "vmware",
+      "kvm",
+      "lxc",
+      "kubernetes",
+    ],
   }),
   resourceRequirements: z
     .object({
-      cpu: z.number().optional().meta({
-        description: "The minimum CPU required for the challenge, e.g. 1024",
-      }),
-      memory: z.string().optional().meta({
-        description:
-          "The minimum memory required for the challenge, e.g. '256Mi'",
-      }),
-      disk: z.string().optional().meta({
-        description: "The minimum disk required for the challenge, e.g. '1Gi'",
-      }),
-      gpu: z.number().optional().meta({
-        description: "The minimum GPU required for the challenge, e.g. 0.5",
-      }),
+      cpu: z
+        .number()
+        .optional()
+        .meta({
+          description: "The minimum CPU required for the challenge.",
+          examples: [1024, 512, 2048],
+        }),
+      memory: z
+        .string()
+        .optional()
+        .meta({
+          description: "The minimum memory required for the challenge.",
+          examples: ["512Mi", "1Gi"],
+        }),
+      disk: z
+        .string()
+        .optional()
+        .meta({
+          description: "The minimum disk required for the challenge.",
+          examples: ["500Mi", "2Gi"],
+        }),
+      gpu: z
+        .number()
+        .optional()
+        .meta({
+          description: "The minimum GPU required for the challenge.",
+          examples: [0, 0.5, 1],
+        }),
     })
     .optional()
     .meta({ description: "The minimum resources the container requires" }),
@@ -41,20 +70,21 @@ export const containerOptions = z.object({
     .array(
       z.object({
         port: z.number().meta({
-          description: "The port to expose for the challenge, e.g. 80, 443, 22",
+          description: "The port to expose for the challenge.",
+          examples: [80, 443, 22],
         }),
         protocol: z.string().meta({
-          description:
-            "The protocol to expect for the port, e.g. 'tcp', 'udp', 'http'",
+          description: "The protocol to expect for the port.",
+          examples: ["tcp", "udp", "http", "https"],
         }),
       }),
     )
     .meta({
       description: "The ports to expose for the challenge",
     }),
-  flagArg: z.string().optional().meta({
+  parameters: ArgumentAndEnvironmentVariables.optional().meta({
     description:
-      "The argument to pass to the container, e.g. '--flag flag{this_is_a_flag}'",
+      "The arguments and environment variables that can be provided to the challenge container at runtime.",
   }),
   outputs: buildOutputs
     .optional()

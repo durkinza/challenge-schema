@@ -31,13 +31,27 @@
                 "buildType": "script",
                 "script": {
                     "path": "build.sh",
-                    "flagArg": "flag",
                     "outputs": [
                         {
                             "key": "cipher.txt",
                             "path": "cipher.txt"
                         }
-                    ]
+                    ],
+                    "parameters": {
+                        "arguments": [
+                            {
+                                "key": "--flag",
+                                "description": "The flag to be used in the challenge"
+                            }
+                        ],
+                        "environmentVariables": [
+                            {
+                                "key": "ROTATION_KEY",
+                                "description": "Accepts the number of rotations to use in the Caesar cipher. Defaults to 13."
+                            }
+                        ],
+                        "flagArgumentName": "--flag"
+                    }
                 }
             },
             "attachments": [

@@ -129,7 +129,15 @@ dynamic-cipher.zip
                 "buildType": "script",
                 "script": {
                     "path": "build.sh",
-                    "flagArg": "flag",
+                    "parameters": {
+                        "arguments": [
+                            {
+                                "key": "--flag",
+                                "description": "The flag value to encode in the cipher"
+                            }
+                        ],
+                        "flagArgumentName": "--flag"
+                    },
                     "outputs": [
                         {
                             "key": "cipher.txt",
@@ -192,7 +200,7 @@ web-challenge.zip
 **challenge.json:**
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/durkinza/challenge-bundle-schema/main/challenge.schema.json",
+  "$schema": "https://raw.githubusercontent.com/durkinza/challenge-schema/main/challenge.schema.json",
   "name": "Cookie Monster",
   "description": "This website provides a simple cookie that can be updated to show the flag. This challenge tests your knowledge of browser cookies and how to manipulate them.",
   "difficulty": "medium",
@@ -227,7 +235,15 @@ web-challenge.zip
                 "port": 80,
                 "protocol": "tcp"
             }],
-            "flagArg": "FLAG",
+            "parameters": {
+                "environmentVariables": [
+                    {
+                        "key": "FLAG",
+                        "description": "The flag value to be displayed when the cookie is set correctly"
+                    }
+                ],
+                "flagEnvironmentVariableName": "FLAG"
+            }
         }
     }
   },
@@ -291,7 +307,7 @@ web-challenge-pack.zip
 **challenge-pack.json:**
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/durkinza/challenge-bundle-schema/main/challenge-pack.schema.json",
+  "$schema": "https://raw.githubusercontent.com/durkinza/challenge-schema/main/challenge-pack.schema.json",
   "name": "Web Exploitation Fundamentals",
   "description": "A collection of challenges covering fundamental web exploitation techniques",
   "author": {

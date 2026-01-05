@@ -12,6 +12,7 @@ const version: string = pjson.version;
 
 export const Challenge = z
   .object({
+    $schema: z.string().optional(),
     name: z.string().meta({ description: "The name of the challenge" }),
     description: z
       .string()

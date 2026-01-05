@@ -5,15 +5,16 @@ Often useful for generating unique files for each player or if a challenge suppo
 
 ## Required Fields
 
-No required fields. 
-
-## Optional Fields
-
 | Field | Type | Description |
 |-------|------|-------------|
 | `buildType` | string | The deployment type |
 | `script` | object | details for a script build process (not available when container is provided) |
 | `container` | object | details for a container build process (not available when script is provided) |
+
+## Optional Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
 | `attachments` | object | details for attachments |
 
 
@@ -24,7 +25,7 @@ No required fields.
     "deployment": {
         "type": "standard",
         "standard": {
-            "build":{
+            "build": {
                 "buildType": "container",
                 "container":{
                     "driver": "docker",
@@ -35,7 +36,15 @@ No required fields.
                         "memory": "256Mi",
                         "disk": "1Gi"
                     },
-                    "flagArg": "flag",
+                    "parameters": {
+                        "arguments": [
+                            {
+                                "key": "--flag",
+                                "description": "The flag value to encode"
+                            }
+                        ],
+                        "flagArgumentName": "--flag"
+                    },
                     "output": [
                         {
                             "key": "cipher_text",
@@ -72,7 +81,15 @@ Often this could be useful for generating files for the player using a container
                 "buildType": "script",
                 "script":{
                     "path": "./build.sh",
-                    "flagArg": "flag",
+                    "parameters": {
+                        "arguments": [
+                            {
+                                "key": "--flag",
+                                "description": "The flag value to encode"
+                            }
+                        ],
+                        "flagArgumentName": "--flag"
+                    },
                     "outputs": [
                         {
                             "key": "cipher_text",

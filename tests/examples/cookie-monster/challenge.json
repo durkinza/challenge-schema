@@ -36,7 +36,15 @@
                     "cpu": 1024,
                     "memory": "256Mi"
                 },
-                "flagArg": "flag"
+                "parameters": {
+                    "environmentVariables": [
+                        {
+                            "key": "FLAG",
+                            "description": "The flag to be used in the challenge"
+                        }
+                    ],
+                    "flagEnvironmentVariableName": "FLAG"
+                }
             }
         }
     },
