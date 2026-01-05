@@ -1,7 +1,7 @@
 {
     "$schema": "../../../challenge.schema.json",
     "name": "Cookie-Monster",
-    "description": "There's trouble on Seasame Street! The Cookie Monster needs your help to find his cookies!",
+    "description": "There's trouble on Sesame Street! The Cookie Monster needs your help to find his cookies!",
     "points": 100,
     "category": "Forensics",
     "defaultFlag": {
@@ -16,7 +16,7 @@
         "type": "hosted",
         "hosted": {
             "container": {
-                "image": "neverlanctf/cookie-monster:lastest",
+                "image": "neverlanctf/cookie-monster:latest",
                 "driver": "docker",
                 "ports": [
                     {

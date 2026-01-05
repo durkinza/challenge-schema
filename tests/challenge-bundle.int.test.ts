@@ -96,11 +96,11 @@ describe('Challenge Schema Validation', () => {
                 validateChallengeBundle(challenge);
             }).toThrowError();
         });
-    });
         it('should identify missing environment variable match for flagEnvironmentVariableName', () => {
             const challenge = loadChallengeFile(inValidChallenges[4]);
             expect(() => {
                 validateChallengeBundle(challenge);
             }).toThrowError();
         });
+    });
 });

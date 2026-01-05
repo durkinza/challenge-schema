@@ -26,6 +26,7 @@ Often useful for generating unique files for each player or if a challenge suppo
         "type": "standard",
         "standard": {
             "build": {
+                "buildType": "container",
                 "container":{
                     "driver": "docker",
                     "image": "neverlanctf/crypto-gen:latest",
