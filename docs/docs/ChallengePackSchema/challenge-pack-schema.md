@@ -4,7 +4,7 @@ The Challenge Pack Schema defines a collection of related challenges. It allows 
 
 ## Basic Structure
 
-```json
+```json title="challenge-pack.json"
 {
   "$schema": "https://raw.githubusercontent.com/durkinza/challenge-bundle-schema/main/challenge-pack.schema.json",
   "challenges": [
@@ -66,50 +66,57 @@ my-challenge-pack.zip
 
 Paths in the `path` field are resolved relative to the location of `challenge-pack.json`:
 
-```json
+```json title="challenge-pack.json"
 {
   "challenges": [
     {
       "id": "challenge1",
-      "path": "./web-basics.zip"           // Looks for ./web-basics.zip/challenge.json
+      "path": "./web-basics.zip"    // (1)!
     },
     {
       "id": "challenge2",
-      "path": "./crypto-intro.zip"  // Looks for ./crypto-intro.zip/challenge.json
+      "path": "./crypto-intro.zip"  // (2)!
     },
     {
       "id": "challenge3",
-      "path": "./forensics-101.zip"  // Looks for ./forensics-101.zip/challenge.json
+      "path": "./forensics-101.zip"  // (3)!
     }
   ]
 }
 ```
+
+1. Challenge 1 path resolves to `./web-basics.zip/challenge.json`
+2. Challenge 2 path resolves to `./crypto-intro.zip/challenge.json`
+3. Challenge 3 path resolves to `./forensics-101.zip/challenge.json`
 
 ## Prerequisites System
 
 The `prerequisites` field creates dependencies between challenges:
 
-```json
+```json title="challenge-pack.json"
 {
   "challenges": [
-    {
+    {// (1)!
       "id": "challenge1",
       "path": "./web-basics.zip"
-      // No prerequisites - available immediately
     },
     {
       "id": "challenge2",
       "path": "./crypto-intro.zip",
-      "prerequisites": ["challenge1"]  // Unlocks after completing challenge1
+      "prerequisites": ["challenge1"]  // (2)!
     },
     {
       "id": "challenge3",
       "path": "./forensics-101.zip",
-      "prerequisites": ["challenge1", "challenge2"]  // Requires both challenge1 AND challenge2
+      "prerequisites": ["challenge1", "challenge2"]  // (3)!
     }
   ]
 }
 ```
+
+1. Challenge 1 is available immediately.
+2. Challenge 2 unlocks after completing Challenge 1.
+3. Challenge 3 unlocks after completing both Challenge 1 and Challenge 2.
 
 ### How Prerequisites Work
 
@@ -129,26 +136,30 @@ You can override specific properties from individual `challenge.json` files:
 
 The pack's category takes precedence:
 
-**challenges/web-app/challenge.json:**
-```json
+
+```json title="challenges/web-app/challenge.json"
 {
   "name": "Cookie Monster",
-  "category": "web",  // Original category
+  "category": "web",  // (1)!
   "points": 100
 }
 ```
-**challenge-pack.json:**
-```json
+
+1. The original default category in challenge.json is "web".
+
+```json title="challenge-pack.json"
 {
   "challenges": [
     {
       "id": "cookie-monster",
       "path": "./challenges/web-app",
-      "category": "input-validation"  // Overrides to "input-validation"
+      "category": "input-validation" // (1)!
     }
   ]
 }
 ```
+
+1.  Adding a category field here overrides the original category in challenge.json.
 
 ### Points Override
 
@@ -161,13 +172,16 @@ Useful for adjusting difficulty in the context of the pack:
     {
       "id": "easy-crypto",
       "path": "./crypto/caesar",
-      "points": 50  // Easier in this pack
+      "points": 50  // (1)!
     },
     {
       "id": "hard-crypto",
       "path": "./crypto/rsa",
-      "points": 500  // Much harder in this pack
+      "points": 500  // (2)!
     }
   ]
 }
 ```
+
+1. Easier challenge gets fewer points
+2. Harder challenge gets more points
