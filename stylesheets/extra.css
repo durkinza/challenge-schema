@@ -1,0 +1,47 @@
+[data-md-color-scheme="slate"] {
+
+    /* Primary color shades */
+    --md-primary-fg-color: #2fa72b;
+    /* Used for Header/navbar text color */
+    --md-primary-bg-color: #ffffff;
+    /* Used for Header/navbar search placeholder text color */
+    --md-primary-bg-color--light: #cacaca;
+
+    /* Used for link hover text color + scroll bar */
+    --md-accent-fg-color: #a99b3b;
+
+    /****
+    CUSTOM COLOR VARIABLES
+    ****/
+    /* Used for selected text and selected links */
+    --md-accent-fg-selected-color: #c9ab4b;
+
+    /*** END CUSTOM COLOR VARIABLES ***/
+    --md-typeset-color: var(--md-default-fg-color);
+    --md-typeset-a-color: var(--md-accent-fg-selected-color);
+}
+
+[data-md-color-scheme="light"] {
+
+
+    /* Primary color shades */
+
+    --md-primary-fg-color: #2f664a;
+    /* Used for Header/navbar text color */
+    --md-primary-bg-color: #ffffff;
+    /* Used for Header/navbar search placeholder text color */
+    --md-primary-bg-color--light: #cacaca;
+
+    /* Used for link hover text color + scroll bar */
+    --md-accent-fg-color: #4eaf66;
+
+    /****
+    CUSTOM COLOR VARIABLES
+    ****/
+    /* Used for selected text and selected links */
+    --md-accent-fg-selected-color: #346937;
+
+    /*** END CUSTOM COLOR VARIABLES ***/
+    --md-typeset-color: var(--md-default-fg-color);
+    --md-typeset-a-color: var(--md-accent-fg-selected-color);
+}
