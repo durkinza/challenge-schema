@@ -7,26 +7,81 @@ If your challenge does not support dynamic flags, this field not required.
 
 ## Basic Structure
 
-```
-{
-  "name": "Challenge Name",
-  "customFlag": {
-    "allowedCharacters": string | {
-        "lowercase": boolean,
-        "uppercase": boolean,
-        "numbers": boolean,
-        "specialCharacters": boolean | string
-    },
-    "length": {
-        "min": number,
-        "max": number
+=== "object generic specialCharacters"
+
+    | Field | Type | required | Default | Description |
+    |-------|------|----------|---------|-------------|
+    | `lowercase` | boolean | false | true | Include lowercase letters [a-z] (default: true) |
+    | `uppercase` | boolean | false | true | Include uppercase letters [A-Z] (default: true) |
+    | `numbers` | boolean | false | true | Include numbers [0-9] (default: true) |
+    | `specialCharacters` | boolean | false | true | Include special characters.
+
+    ```json title="Challenge Schema"
+    {
+      "name": "Challenge Name",
+      "customFlag": {
+        "allowedCharacters":{
+            "lowercase": true,
+            "uppercase": true,
+            "numbers": true,
+            "specialCharacters": true // (1)!
+        },
+        "length": {
+            "min": 0,
+            "max": 100
+        }
+      }
+      //...
     }
-  }
-  //...
-}
-```
+    ```
 
+    1. Default character set assumes any ascii character.
+=== "object with string specialCharacters"
 
+    | Field | Type | required | Default | Description |
+    |-------|------|----------|---------|-------------|
+    | `lowercase` | boolean | false | true | Include lowercase letters [a-z] (default: true) |
+    | `uppercase` | boolean | false | true | Include uppercase letters [A-Z] (default: true) |
+    | `numbers` | boolean | false | true | Include numbers [0-9] (default: true) |
+    | `specialCharacters` | string | false | Empty Set | List of special characters that can be used in the flag.
+
+    ```json title="Challenge Schema"
+    {
+      "name": "Challenge Name",
+      "customFlag": {
+        "allowedCharacters":{
+            "lowercase": true,
+            "uppercase": true,
+            "numbers": true,
+            "specialCharacters": "!@#$%^&*()✅"
+        },
+        "length": {
+            "min": 0,
+            "max": 100
+        }
+      }
+      //...
+    }
+    ```
+=== "Characters as a string"
+
+    | Field | Type | required | Default | Description |
+    |-------|------|----------|---------|-------------|
+    | `allowedCharacters` | string | true | N/A | Exact string of allowed characters for the flag |
+
+    ```json title="Challenge Schema"
+    {
+      "name": "Challenge Name",
+      "customFlag": {
+        "allowedCharacters": "1234567890ABCDEF",
+        "length": {
+            "min": 0,
+            "max": 100
+        }
+      }
+      //...
+    }
+    ```
 
 ## Allowed Characters
 
@@ -89,11 +144,11 @@ Build a character set from predefined categories:
 
 | Field | Type | required | default | Description |
 |-------|------|----------|---------|-------------|
-| `allowedCharacters` | string | true | object/string | Either an explicit character set string or an object with character categories |
+| `allowedCharacters` | object/string | false | N/A | Either an explicit character set string or an object with character categories. Only required if dynamic flags are supported. |
 | `lowercase` | boolean | false | true | Include lowercase letters [a-z] (default: true) |
 | `uppercase` | boolean | false | true | Include uppercase letters [A-Z] (default: true) |
 | `numbers` | boolean | false | true | Include numbers [0-9] (default: true) |
-| `specialCharacters` | boolean | false | false | string | Include special characters. `true` = default set [_=!#$%&()*+,-.:'/?@ ], `false` = none, or provide custom string (e.g., '!@#$' or emojis '😀😁😂') (default: true) |
+| `specialCharacters` | boolean/string | false | false |  Include special characters. `true` = default set [_=!#$%&()*+,-.:'/?@ ], `false` = none, or provide custom string (e.g., '!@#$' or emojis '😀😁😂') (default: true) |
 | `length.min` | number | false | 1 | The minimum length supported for the flag (default: 1) |
 | `length.max` | number | false | MAX_SAFE_INTEGER | The maximum length supported for the flag (default: MAX_SAFE_INTEGER) |
 

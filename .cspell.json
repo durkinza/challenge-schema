@@ -21,7 +21,8 @@
         "synt",
         "pnrfne",
         "fnynq",
-        "preg_match"
+        "preg_match",
+        "pygments_lang_class"
     ],
     "flagWords": [],
     "ignorePaths": [

@@ -40,14 +40,17 @@ theme:
     - navigation.expand
     - navigation.indexes
     - content.code.copy
+    - content.code.annotate
   icon:
     repo: fontawesome/brands/github
 
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.snippets
   - pymdownx.superfences
-  - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.tabbed:
       alternate_style: true
@@ -93,6 +96,8 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/durkinza/challenge-bundle-schema
+  annotate:
+    json: [.s2]
 
 extra_css:
   - stylesheets/extra.css
