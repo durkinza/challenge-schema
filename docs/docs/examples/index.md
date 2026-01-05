@@ -72,7 +72,7 @@ caesar-cipher.zip
             }
         },
         "author": {
-          "name": "Julius Caesar",
+          "name": "Julius Caesar"
         },
         "language": "english",
         "solutions": [
@@ -156,7 +156,7 @@ dynamic-cipher.zip
             }
         },
         "author": {
-            "name": "Julius Caesar",
+            "name": "Julius Caesar"
         },
         "language": "english",
         "solutions": [
@@ -234,11 +234,13 @@ web-challenge.zip
                     "protocol": "tcp"
                 }],
                 "parameters": {
-                    "environmentVariables": {
-                        "key": "FLAG",
-                        "description": "The flag to display the challenge"
-                    }
-                },
+                    "environmentVariables": [
+                        {
+                            "key": "FLAG",
+                            "description": "The flag to display when the challenge is solved"
+                        }
+                    ]
+                }
             }
         }
       },

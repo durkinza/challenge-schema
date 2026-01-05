@@ -63,7 +63,7 @@ If your challenge does not support dynamic flags, this field not required.
       //...
     }
     ```
-=== "Caracters as a string"
+=== "Characters as a string"
 
     | Field | Type | required | Default | Description |
     |-------|------|----------|---------|-------------|
