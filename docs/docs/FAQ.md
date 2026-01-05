@@ -53,19 +53,19 @@ See [Attachments](ChallengeSchema/challenge-attachments.md) for more information
 ### Where can I find examples?
 
 - [Examples in docs](examples/index.md)
-- [Test examples on GitHub](https://github.com/durkinza/challenge-bundle-schema/tree/main/tests/examples)
+- [Test examples on GitHub](https://github.com/durkinza/challenge-schema/tree/main/tests/examples)
 - [CTF Vault](https://ctfvault.org/) community challenges
 
 ### How do I report issues?
 
-[Open a GitHub issue](https://github.com/durkinza/challenge-bundle-schema/issues) with:
+[Open a GitHub issue](https://github.com/durkinza/challenge-schema/issues) with:
 - Your `challenge.json` (remove sensitive data)
 - Expected vs actual behavior
 - Validation error messages
 
 ### Can I contribute?
 
-Yes! See the [Contributing Guide](https://github.com/durkinza/challenge-bundle-schema/blob/main/CONTRIBUTING.md) to:
+Yes! See the [Contributing Guide](https://github.com/durkinza/challenge-schema/blob/main/CONTRIBUTING.md) to:
 - Submit bug fixes
 - Improve documentation
 - Discuss design ideas

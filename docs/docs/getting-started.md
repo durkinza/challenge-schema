@@ -10,16 +10,16 @@ You can install the Challenge Bundle Schema package in your project using any ma
 
 ```bash
 # Using npm
-npm install @durkinza/challenge-bundle-schema
+npm install @durkinza/challenge-schema
 
 # Using yarn
-yarn add @durkinza/challenge-bundle-schema
+yarn add @durkinza/challenge-schema
 
 # Using pnpm
-pnpx add @durkinza/challenge-bundle-schema
+pnpx add @durkinza/challenge-schema
 
 # Using Bun
-bun add @durkinza/challenge-bundle-schema
+bun add @durkinza/challenge-schema
 ```
 
 ## Running validation locally
@@ -27,16 +27,16 @@ If you want to test your challenge.json file locally, the provided package can a
 
 ```bash
 # Using npx
-npx @durkinza/challenge-bundle-schema validate challenge.json
-npx @durkinza/challenge-bundle-schema validate -t pack challenge-pack.json
+npx @durkinza/challenge-schema validate challenge.json
+npx @durkinza/challenge-schema validate -t pack challenge-pack.json
 
 # Using pnpx
-pnpx @durkinza/challenge-bundle-schema validate challenge.json
-pnpx @durkinza/challenge-bundle-schema validate -t pack challenge-pack.json
+pnpx @durkinza/challenge-schema validate challenge.json
+pnpx @durkinza/challenge-schema validate -t pack challenge-pack.json
 
 # Using Bunx
-bunx @durkinza/challenge-bundle-schema validate challenge.json
-bunx @durkinza/challenge-bundle-schema validate -t pack challenge-pack.json
+bunx @durkinza/challenge-schema validate challenge.json
+bunx @durkinza/challenge-schema validate -t pack challenge-pack.json
 ```
 
 ## Setting up IDE code completion
@@ -53,13 +53,13 @@ To tell VSCode to expect all challenge.json and challenge-pack.json files to fol
             "fileMatch": [
                 "/challenge.json",
             ],
-            "url": "https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge.schema.json"
+            "url": "https://github.com/durkinza/challenge-schema/releases/download/0.0.1/challenge.schema.json"
         },
         {
             "fileMatch": [
                 "/challenge-pack.json",
             ],
-            "url": "https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge-pack.schema.json"
+            "url": "https://github.com/durkinza/challenge-schema/releases/download/0.0.1/challenge-pack.schema.json"
         },
     ]
 }
@@ -71,7 +71,7 @@ If you prefer to configure the schema on individual files, JSON provides a `$sch
 ```json
 {
     // Add $schema to challenge.json file
-    "$schema": "https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge.schema.json",
+    "$schema": "https://github.com/durkinza/challenge-schema/releases/download/0.0.1/challenge.schema.json",
     //... Rest of Json file.
 }
 ```
@@ -81,7 +81,7 @@ This will help with autocompletion and validation of challenge.json files.
 ```json
 {
     // Add $schema to challenge-pack.json file
-    "$schema": "https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge-pack.schema.json",
+    "$schema": "https://github.com/durkinza/challenge-schema/releases/download/0.0.1/challenge-pack.schema.json",
     //... Rest of Json file.
 }
 ```
@@ -90,7 +90,7 @@ This will help with autocompletion and validation of challenge-pack.json files.
 similarly, a challenge.yml and challenge-pack.yml file can be setup with 
 ```yaml
 # Add $schema to challenge.yml file
-$schema: https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge.schema.json
+$schema: https://github.com/durkinza/challenge-schema/releases/download/0.0.1/challenge.schema.json
 # Rest of Yaml file.
 ```
 This will help with autocompletion and validation of challenge.json files.
@@ -98,7 +98,7 @@ This will help with autocompletion and validation of challenge.json files.
 
 ```yaml
 # Add $schema to challenge-pack.yml file
-$schema: https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge-pack.schema.json
+$schema: https://github.com/durkinza/challenge-schema/releases/download/0.0.1/challenge-pack.schema.json
 # Rest of Yaml file.
 ```
 <br/>
@@ -120,7 +120,7 @@ An example challenge.json can be created with the following structure:
 
 ```json
 {
-  "$schema": "https://github.com/durkinza/challenge-bundle-schema/releases/download/0.0.1/challenge.schema.json",
+  "$schema": "https://github.com/durkinza/challenge-schema/releases/download/0.0.1/challenge.schema.json",
   "name": "My Trivia Challenge",
   "description": "A simple trivia challenge for the schema walkthrough",
   "prompt": "Your challenge, should you choose to accept it, is to enter flag{my_flag_value} to get points!",

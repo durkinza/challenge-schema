@@ -1,8 +1,11 @@
 
+!!! warning "Early Development Notice"
+    Warning this project is still very early in development. The schemas and documentation may change drastically and frequently.
+    Please provide feedback or open issues on GitHub if you have any suggestions or find any problems.
+
 # CTF Challenge Schemas
 
 The CTF Challenge Bundle and CTF Challenge Pack specifications are standardized formats for creating, sharing, and deploying cybersecurity Capture the Flag (CTF) challenges.
-
 
 ## Documentation Contents
 
