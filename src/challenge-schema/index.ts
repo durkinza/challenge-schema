@@ -15,7 +15,17 @@ export const Challenge = z
     name: z.string().meta({ description: "The name of the challenge" }),
     description: z
       .string()
-      .meta({ description: "A short description of the challenge." })
+      .meta({
+        description:
+          "A short description of the challenge for the Event Coordinator to understand the challenge's purpose.",
+      })
+      .optional(),
+    prompt: z
+      .string()
+      .meta({
+        description:
+          "The prompt presented to the player to introduce the challenge.",
+      })
       .optional(),
     deployment: challengeDeployment,
     defaultFlag: challengeDefaultFlag,

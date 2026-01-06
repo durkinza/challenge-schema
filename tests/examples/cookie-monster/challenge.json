@@ -1,7 +1,8 @@
 {
     "$schema": "../../../challenge.schema.json",
     "name": "Cookie-Monster",
-    "description": "There's trouble on Seasame Street! The Cookie Monster needs your help to find his cookies!",
+    "prompt": "There's trouble on Sesame Street! The Cookie Monster needs your help to find his cookies!",
+    "description": "The Cookie Monster has lost his cookies again!\nVisit the web page and use your browser's developer tools to inspect the cookies. Look for a cookie named `Red_Guy's_name` and change its value to 'Elmo'. Reload the page to see if you can find the flag!\n\nGood luck, and may the cookies be with you!",
     "defaultFlag": {
         "static": [
             "flag{C00kies_4r3_the_b3st}"
